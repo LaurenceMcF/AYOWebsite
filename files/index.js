@@ -34,6 +34,7 @@ var mui = (function(mui){
       if(uiFuncFirst){ uiFuncFirst(PageManager.pages[0]) };
     },
     gotoPage: function(page){
+      SideBar.hidePanel();
       if(page < 0 || page >= PageManager.pages.length){
         return;
       }
@@ -209,6 +210,11 @@ $(function(){
   $(".showsidepanel").click(function(){
     mui.SideBarShow();
   });
+
+  $(".docenter").offset({
+    left: ($(window).width() - $(".docenter").width())/2,
+    top: ($(window).height() - $(".docenter").height())/2,
+  })
 
 
 });

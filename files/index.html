@@ -15,30 +15,34 @@
 
 
 
-<div id="sidepanelcover">Some content is going to go in here to try and find the problem Some content is going to go in here to try and find the problem</div>
+<div id="sidepanelcover"></div>
 <div id="sidepanel">
-  Something is going to happen
+  <ul>
+    <li onclick="mui.PageManagerGotoPage(0);">Page 1</li>
+    <li onclick="mui.PageManagerGotoPage(1);">Page 2</li>
+    <li onclick="mui.PageManagerGotoPage(2);">Page 3</li>
+    <li onclick="mui.PageManagerGotoPage(3);">Page 4</li>
+  </ul>
 </div>
-<div class="showmenu">=</div>
+
+<div class="menuButton showsidepanel"><!--TODO: Fix click target--></div>
 
 <div class="pagecontainer">
 
 <div class="page" id="page1">
-  Some content goes in here
-  <button id="gotoPage3">Goto Page 3</button>
-  <button class="showsidepanel">Show sidebaned</button>
+  <span class="docenter" style="font-size:8em;font-weight:bold;">AYO</span>
 </div>
 
 <div class="page" id="page2">
-  This is some differenet content<button class="showsidepanel">Show sidebaned</button>
+  This is some differenet content
 </div>
 
 <div class="page" id="page3">
-  And here is even more!<button class="showsidepanel">Show sidebaned</button>
+  And here is even more!
 </div>
 
 <div class="page" id="page4">
-  This is just the limit<button class="showsidepanel">Show sidebaned</button>
+  This is just the limit
 </div>
 
 
