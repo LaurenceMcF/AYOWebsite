@@ -5,9 +5,8 @@ $(function(){
     }
   })($(".log"))
 
-  var page = $(".page");
-  var sidepanel = $("#sidepanel");
-  var sidepanelcover = $("#sidepanelcover");
+  var page1 = $("#page1");
+  var page2 = $("#page2");
 
   var hammerOptions = function(){
     return {recognizers: [
@@ -16,107 +15,62 @@ $(function(){
       [Hammer.Tap]
     ]};
   }
-  page.hammer(hammerOptions());
-  sidepanel.hammer(hammerOptions());
-  sidepanelcover.hammer(hammerOptions());
+  page1.hammer(hammerOptions());
+  page2.hammer(hammerOptions());
+  page2.offset({left:$(window).width()});
+  page2.width($(window).width());
+  page1.width($(window).width())
 
   var Actions = {
-    showPanel: function() {
-      sidepanel.animate({left: 0}, 100);
-      sidepanelcover.show();
-      sidepanelcover.animate({opacity: 0.4}, 100, function(){
-        Actions.bindPanel();
-      });
+    showPage: function(pagea, pageb, reverse) {
+      if(!reverse){
+        pagea.animate({left: 0-$(window).width()}, 100);
+        pageb.animate({left: 0}, 100);
+      }else{
+        pagea.animate({left: 0}, 100);
+        pageb.animate({left: $(window).width()}, 100);
+      }
     },
-    hidePanel: function() {
-      Actions.unbindPanel();
-      sidepanelcover.animate({opacity: 0}, 100, function(){
-        sidepanelcover.hide();
-      });
-      sidepanel.animate({left: 0-sidepanel.width()}, 100);
+    showNext: function() {
+      Actions.showPage(page1, page2, false);
     },
-    bindPanel: function(){
-      sidepanel
-        .bind("panstart panmove", Actions.panPanel)
-        .bind("swiperight", Actions.hidePanel)
-        .bind("panend", Actions.panPanelEnd);
-      sidepanelcover
-        .bind("panstart panmove", Actions.panPanel)
-        .bind("swiperight", Actions.hidePanel)
-        .bind("panend", Actions.panPanelEnd)
-        .bind("click", Actions.hidePanel);
-    },
-    unbindPanel: function(){
-      sidepanel
-        .unbind("panstart panmove", Actions.panPanel)
-        .unbind("swipeleft", Actions.hidePanel)
-        .unbind("panend", Actions.panPanelEnd);
-      sidepanelcover
-        .unbind("panstart panmove", Actions.panPanel)
-        .unbind("swipeleft", Actions.hidePanel)
-        .unbind("panend", Actions.panPanelEnd)
-        .unbind("click", Actions.hidePanel);
+    showCurrent: function() {
+      Actions.showPage(page1, page2, true);
     },
     showPartPanel: function(value){
-      sidepanel.offset({left:value - sidepanel.width()});
-      var op = value*0.0013; //(OR value * (0.4/300))
-      sidepanelcover.show().css({"opacity": op});
+      page1.offset({left: value});
+      page2.offset({left: $(window).width() + value});
     },
-    hidePartPanel: function(value){
-      sidepanel.offset({left:value});
-      var op = (value+300)*0.0013;
-      sidepanelcover.show().css({"opacity": op});
-    },
-    panBase: function(e){
+    panNext: function(e){
       var g = e.gesture;
-      if(g.deltaX >= 0 && g.deltaX <= sidepanel.width()){
+      if(g.deltaX <= 0 && g.deltaX <= $(window).width()){
         Actions.showPartPanel(g.deltaX);
       }else if(g.deltaX < 0){
         Actions.showPartPanel(0);
       }
     },
-    panBaseEnd: function(e){
+    panNextEnd: function(e){
       var g = e.gesture;
-      if(g.deltaX >= 100) {
-        Actions.showPanel();
-      }else if(g.deltaX < 100) {
-        Actions.hidePanel();
+      if(g.deltaX <= 0-( $(window).width() / 2)) {
+        Actions.showNext();
+      }else if(g.deltaX > 0-($(window).width() / 2)) {
+        Actions.showCurrent();
       }
     },
-    panPanel: function(e){
-      var g = e.gesture;
-      if(g.deltaX <= 0 && g.deltaX <= sidepanel.width()){
-        Actions.hidePartPanel(g.deltaX);
-      }else if(g.deltaX > 0){
-        Actions.hidePartPanel(0);
-      }
-    },
-    panPanelEnd: function(e){
-      var g = e.gesture;
-      if(g.deltaX >= -100) {
-        Actions.showPanel();
-      }else if(g.deltaX < -100) {
-        Actions.hidePanel();
-      }
-    },
-
   }
 
-  page
-    .bind("panstart panmove", Actions.panBase)
-    .bind("swiperight", Actions.showPanel)
-    .bind("panend", Actions.panBaseEnd);
+  page1
+    .bind("panstart panmove", Actions.panNext)
+    .bind("swipeleft", Actions.showNext)
+    .bind("panend", Actions.panNextEnd);
 
-  $(".showmenu").bind("click", Actions.showPanel);
-
-
-
+  page2
+    .bind("panstart panmove", Actions.panNext)
+    .bind("swiperight", function(){Actions.showPage(page1, page2, true)})
+    .bind("panend", Actions.panNextEnd)
 
 
 })
-
-
-
 
 
 
