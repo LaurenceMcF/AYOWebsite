@@ -8,21 +8,22 @@
   color:#fff;
 }
 
-#popupcover{
+#sidepanelcover{
   position:absolute;
   top:0px;
   left:0px;
   right:0px;
   bottom:0px;
   background:#000;
-  opacity:0.4;
+  /*opacity:0.4;*/
+  opacity:0;
   z-index:2;
   display:none;
+  color:#fff;
 }
 
-.sidepanel{
+#sidepanel{
   position:absolute;
-  display:none;
   top:0px;
   left:-300px;
   bottom:0px;

@@ -1,147 +1,119 @@
-(function ( $ ) {
-
-    $.fn.showswipe = function() {
-      this
-        //.offset({left: 0-this.width()})
-        .show()
-        .animate({left: 0}, 100);
-      return this;
-    };
-    $.fn.hideswipe = function() {
-      this
-        .animate({left: 0-this.width()}, 100)
-      return this;
-    };
-
-}( jQuery ));
-
 $(function(){
-  var logel = $(".log");
-  function log(text){
-    logel.text(text);
-  }
-
-  var testCounter = 0;
-
-  var el = document.querySelector(".page");
-  var sidepanel = $(".sidepanel");
-
-  var drag = $("#scrollthing")
-
-  var START_X = 0;
-  var START_Y = 0;
-  var position = {left:0, top:0};
-
-
-  var mc = new Hammer.Manager(el);
-
-  mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
-
-  mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
-
-  mc.add(new Hammer.Tap());
-
-  mc.on("panstart panmove", onPan);
-  mc.on("swiperight", onSwipe);
-  mc.on("panend", onPanEnd)
-
-  //mc.on("tap", onTap);
-
-  //$(el).on("click", onTap);
-
-  var mcd = new Hammer.Manager(document.querySelector("#popupcover"));
-  mcd.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
-  mcd.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
-  mcd.on("panstart panmove", onPanLeft);
-  mcd.on("swipeleft", onSwipeLeft);
-  mcd.on("panend", onPanEndLeft)
-
-  function onTap(ev){
-    log("Touched " + testCounter);
-    testCounter++;
-    console.log(el.innerText);
-    console.log("Taped Main Div");
-    if(visible){
-      sidepanel.hide();
-    }else{
-      sidepanel.showswipe();
+  var log = (function(el){
+    return function(text){
+      el.html(el.html()+"<br />"+text);
     }
-    visible = !visible;
+  })($(".log"))
+
+  var page = $(".page");
+  var sidepanel = $("#sidepanel");
+  var sidepanelcover = $("#sidepanelcover");
+
+  var hammerOptions = function(){
+    return {recognizers: [
+      [Hammer.Pan, {threshold:5, pointers:0}],
+      [Hammer.Swipe,{ direction: Hammer.DIRECTION_HORIZONTAL }],
+      [Hammer.Tap]
+    ]};
+  }
+  page.hammer(hammerOptions());
+  sidepanel.hammer(hammerOptions());
+  sidepanelcover.hammer(hammerOptions());
+
+  var Actions = {
+    showPanel: function() {
+      sidepanel.animate({left: 0}, 100);
+      sidepanelcover.show();
+      sidepanelcover.animate({opacity: 0.4}, 100, function(){
+        Actions.bindPanel();
+      });
+    },
+    hidePanel: function() {
+      Actions.unbindPanel();
+      sidepanelcover.animate({opacity: 0}, 100, function(){
+        sidepanelcover.hide();
+      });
+      sidepanel.animate({left: 0-sidepanel.width()}, 100);
+    },
+    bindPanel: function(){
+      sidepanel
+        .bind("panstart panmove", Actions.panPanel)
+        .bind("swiperight", Actions.hidePanel)
+        .bind("panend", Actions.panPanelEnd);
+      sidepanelcover
+        .bind("panstart panmove", Actions.panPanel)
+        .bind("swiperight", Actions.hidePanel)
+        .bind("panend", Actions.panPanelEnd)
+        .bind("click", Actions.hidePanel);
+    },
+    unbindPanel: function(){
+      sidepanel
+        .unbind("panstart panmove", Actions.panPanel)
+        .unbind("swipeleft", Actions.hidePanel)
+        .unbind("panend", Actions.panPanelEnd);
+      sidepanelcover
+        .unbind("panstart panmove", Actions.panPanel)
+        .unbind("swipeleft", Actions.hidePanel)
+        .unbind("panend", Actions.panPanelEnd)
+        .unbind("click", Actions.hidePanel);
+    },
+    showPartPanel: function(value){
+      sidepanel.offset({left:value - sidepanel.width()});
+      var op = value*0.0013; //(OR value * (0.4/300))
+      sidepanelcover.show().css({"opacity": op});
+    },
+    hidePartPanel: function(value){
+      sidepanel.offset({left:value});
+      var op = (value+300)*0.0013;
+      sidepanelcover.show().css({"opacity": op});
+    },
+    panBase: function(e){
+      var g = e.gesture;
+      if(g.deltaX >= 0 && g.deltaX <= sidepanel.width()){
+        Actions.showPartPanel(g.deltaX);
+      }else if(g.deltaX < 0){
+        Actions.showPartPanel(0);
+      }
+    },
+    panBaseEnd: function(e){
+      var g = e.gesture;
+      if(g.deltaX >= 100) {
+        Actions.showPanel();
+      }else if(g.deltaX < 100) {
+        Actions.hidePanel();
+      }
+    },
+    panPanel: function(e){
+      var g = e.gesture;
+      if(g.deltaX <= 0 && g.deltaX <= sidepanel.width()){
+        Actions.hidePartPanel(g.deltaX);
+      }else if(g.deltaX > 0){
+        Actions.hidePartPanel(0);
+      }
+    },
+    panPanelEnd: function(e){
+      var g = e.gesture;
+      if(g.deltaX >= -100) {
+        Actions.showPanel();
+      }else if(g.deltaX < -100) {
+        Actions.hidePanel();
+      }
+    },
+
   }
 
-  function onPan(ev) {
-    /*log("Panned " + testCounter);
-    testCounter++;
-    console.log(ev);*/
-    if(ev.deltaX >= 0 && ev.deltaX <= sidepanel.width()){
-      sidepanel.show().offset({left:ev.deltaX - sidepanel.width()});
-      $("#popupcover").show();
-    }else if(ev.deltaX < 0){
-      $("#popupcover").hide();
-    }
-  }
+  page
+    .bind("panstart panmove", Actions.panBase)
+    .bind("swiperight", Actions.showPanel)
+    .bind("panend", Actions.panBaseEnd);
 
-  function onPanLeft(ev) {
-    if(ev.deltaX <= 0 && ev.deltaX <= sidepanel.width()){
-      sidepanel.show().offset({left:ev.deltaX });
-      $("#popupcover").hide();
-    }else if(ev.deltaX > 0){
-      $("#popupcover").show();
-    }
-  }
-
-
-  function onSwipe(ev){
-    sidepanel.showswipe();
-  }
-
-  function onSwipeLeft(ev){
-    sidepanel.hideswipe();
-    $("#popupcover").hide();
-  }
-
-  function onPanEnd(ev) {
-    if(ev.isFinal && ev.deltaX >= 100) {
-      sidepanel.showswipe();
-    }else if(ev.isFinal && ev.deltaX < 100) {
-      sidepanel.hideswipe();
-      $("#popupcover").hide();
-    }
-  };
-
-  function onPanEndLeft(ev) {
-    if(ev.isFinal && ev.deltaX >= -100) {
-      sidepanel.showswipe();
-      $("#popupcover").show();
-    }else if(ev.isFinal && ev.deltaX < -100) {
-      sidepanel.hideswipe();
-      $("#popupcover").hide();
-    }
-  };
-
-  $(".showmenu").on("click", function(){
-    sidepanel.showswipe();
-    $("#popupcover").show();
-  });
-
-  $("#popupcover").click(function(){
-    sidepanel.hideswipe();
-    $("#popupcover").hide();
-  });
-
-});
+  $(".showmenu").bind("click", Actions.showPanel);
 
 
 
 
 
-
-
-
-
-
-
-
+})
 
 
 
