@@ -1,5 +1,6 @@
-$(function(){
-  var log = (function(el){
+var mui = (function(mui){
+
+  mui.log = (function(el){
     return function(text){
       el.html(el.html()+"<br />"+text);
     }
@@ -12,26 +13,33 @@ $(function(){
       [Hammer.Tap]
     ]};
   }
-  $(".page").each(function(){$(this).hammer(hammerOptions())});
 
-  var pages = $.map($(".page").toArray(), function(obj){ return $(obj)});
-  $.each(pages, function(index, obj){
-    obj
-      .offset({left:$(window).width()})
-      .width($(window).width());
-  });
+  var PageManager = {
+    pages: [],
+    init: function(filter, uiFuncAll, uiFuncFirst){
+      $(filter).each(function(){$(this).hammer(hammerOptions())});
+      PageManager.pages = $.map($(".page").toArray(), function(obj){ return $(obj)});
+      if(uiFuncAll){
+        $.each(PageManager.pages, function(index, obj){
+          uiFuncAll(obj);
 
-  var curPageIndex  = 0;
-  pages[curPageIndex].offset({left:0});
+          obj
+          .bind("panstart panmove", function(e){PageManager.pan(e, index)})
+          .bind("swipeleft", function(){console.log("sl"+index);PageManager.showPage(index+1, index)})
+          .bind("swiperight", function(){console.log("sr"+index);PageManager.showPage(index-1, index)})
+          .bind("panend", function(e){console.log("pe"+index);PageManager.panEnd(e, index)});
 
-  var Actions = {
+        });
+      }
+      if(uiFuncFirst){ uiFuncFirst(PageManager.pages[0]) };
+    },
     gotoPage: function(page){
-      if(page < 0 || page >= pages.length){
+      if(page < 0 || page >= PageManager.pages.length){
         return;
       }
-      for(var i = 0; i < pages.length; i++){
-        if(pages[i].offset().left == 0){
-          Actions.showPage(page, i);
+      for(var i = 0; i < PageManager.pages.length; i++){
+        if(PageManager.pages[i].offset().left == 0){
+          PageManager.showPage(page, i);
         }
       }
     },
@@ -39,19 +47,19 @@ $(function(){
       var width = $(window).width();
 
       if(pageToSee < pageDuringTrans && pageToSee >= 0){
-        pages[pageToSee].animate({left: 0}, 100);
-        pages[pageDuringTrans].animate({left: width}, 100);
-      }else if(pageToSee > pageDuringTrans && pageToSee < pages.length){
-        pages[pageToSee].animate({left: 0}, 100);
-        pages[pageDuringTrans].animate({left: 0-width}, 100);
+        PageManager.pages[pageToSee].animate({left: 0}, 100);
+        PageManager.pages[pageDuringTrans].animate({left: width}, 100);
+      }else if(pageToSee > pageDuringTrans && pageToSee < PageManager.pages.length){
+        PageManager.pages[pageToSee].animate({left: 0}, 100);
+        PageManager.pages[pageDuringTrans].animate({left: 0-width}, 100);
       }
       curPageIndex = pageToSee;
 
-      if(pageToReset != undefined && pageToReset > 0 && pageToReset < pages.length){
+      if(pageToReset != undefined && pageToReset > 0 && pageToReset < PageManager.pages.length){
         if(pageToReset < pageToSee){
-          pages[pageToReset].offset({left: 0-width });
+          PageManager.pages[pageToReset].offset({left: 0-width });
         }else if(pageToReset > pageToSee){
-          pages[pageToReset].offset({left: width });
+          PageManager.pages[pageToReset].offset({left: width });
         }
       }
     },
@@ -60,14 +68,14 @@ $(function(){
       var width = $(window).width();
       dx = (dx > width ? width : (dx < 0-width ? 0-width : dx));
 
-      if(dx < 0 && page < pages.length -1){
-        if(page > 0) pages[page-1].offset({left: 0-width });
-        pages[page].offset({left: dx});
-        pages[page+1].offset({left: width + dx});
+      if(dx < 0 && page < PageManager.pages.length -1){
+        if(page > 0) PageManager.pages[page-1].offset({left: 0-width });
+        PageManager.pages[page].offset({left: dx});
+        PageManager.pages[page+1].offset({left: width + dx});
       }else if(dx > 0 && page > 0){
-        if(page < pages.length - 1) pages[page+1].offset({left: width });
-        pages[page].offset({left: dx});
-        pages[page-1].offset({left: dx - width});
+        if(page < PageManager.pages.length - 1) PageManager.pages[page+1].offset({left: width });
+        PageManager.pages[page].offset({left: dx});
+        PageManager.pages[page-1].offset({left: dx - width});
       }
 
     },
@@ -79,31 +87,33 @@ $(function(){
       var adx = Math.abs(dx);
       if(adx > w2){
         if(dx > 0){
-          Actions.showPage(page-1, page, page+1);
+          PageManager.showPage(page-1, page, page+1);
         }else{
-          Actions.showPage(page+1, page, page-1);
+          PageManager.showPage(page+1, page, page-1);
         }
       }else{
         if(dx > 0){
-          Actions.showPage(page, page-1, page+1);
+          PageManager.showPage(page, page-1, page+1);
         }else{
-          Actions.showPage(page, page+1, page+1);
+          PageManager.showPage(page, page+1, page+1);
         }
       }
     },
   }
 
-  $.each(pages, function(index, obj){
-    obj
-    .bind("panstart panmove", function(e){Actions.pan(e, index)})
-    .bind("swipeleft", function(){console.log("sl"+index);Actions.showPage(index+1, index)})
-    .bind("swiperight", function(){console.log("sr"+index);Actions.showPage(index-1, index)})
-    .bind("panend", function(e){console.log("pe"+index);Actions.panEnd(e, index)});
+
+  mui.PageManagerInit = PageManager.init;
+  mui.PageManagerGotoPage = PageManager.gotoPage;
+
+  /*PageManager.init(".page", function(obj){
+    obj.offset({left:$(window).width()}).width($(window).width());
+  }, function(obj){
+    obj.offset({left:0});
   });
 
   $("#gotoPage3").click(function(){
-    Actions.gotoPage(2);
-  });
+    PageManager.gotoPage(2);
+  });*/
 
 
   var SideBar = {
@@ -162,27 +172,46 @@ $(function(){
 
   }
 
-  SideBar.init($("#sidepanel"), $("#sidepanelcover"));
+  //SideBar.init($("#sidepanel"), $("#sidepanelcover"));
+
+  //$(".showsidepanel").click(function(){
+  //  SideBar.showPanel();
+  //});
+
+  mui.SideBarInit = SideBar.init;
+  mui.SideBarShow = SideBar.showPanel;
+
+
+
+
+  return mui;
+})(mui || {});
+
+
+
+
+
+
+$(function(){
+
+  mui.PageManagerInit(".page", function(obj){
+    obj.offset({left:$(window).width()}).width($(window).width());
+  }, function(obj){
+    obj.offset({left:0});
+  });
+
+  $("#gotoPage3").click(function(){
+    mui.PageManagerGotoPage(2);
+  });
+
+  mui.SideBarInit($("#sidepanel"), $("#sidepanelcover"));
 
   $(".showsidepanel").click(function(){
-    SideBar.showPanel();
+    mui.SideBarShow();
   });
 
 
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
