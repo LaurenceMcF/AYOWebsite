@@ -38,7 +38,11 @@ orange:#F09300 #fff
   left:0px;
   right:0px;
   bottom:0px;
+}
+
+.page span{
   padding:60px 20px;
+  display:block;
 }
 
 #page1{

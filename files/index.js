@@ -214,7 +214,12 @@ $(function(){
   $(".docenter").offset({
     left: ($(window).width() - $(".docenter").width())/2,
     top: ($(window).height() - $(".docenter").height())/2,
-  })
+  }).click(function(){
+    $(".docenter").animate({
+      top:20,
+      fontSize:"2em",
+    }, 200)
+  });
 
 
 });
