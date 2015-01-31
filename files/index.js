@@ -105,6 +105,72 @@ $(function(){
     Actions.gotoPage(2);
   });
 
+
+  var SideBar = {
+    panel: {},
+    cover: {},
+    init: function(panel, cover){
+      SideBar.panel = panel;
+      SideBar.cover = cover;
+      SideBar.panel.hammer(hammerOptions());
+      SideBar.cover.hammer(hammerOptions());
+      SideBar.bindPanel();
+    },
+    showPanel: function() {
+      SideBar.panel.animate({left: 0}, 100);
+      SideBar.cover.show();
+      SideBar.cover.animate({opacity: 0.4}, 100);
+    },
+    hidePanel: function() {
+      SideBar.cover.animate({opacity: 0}, 100, function(){
+        SideBar.cover.hide();
+      });
+      SideBar.panel.animate({left: 0-SideBar.panel.width()}, 100);
+    },
+    bindPanel: function(){
+      SideBar.panel
+        .bind("panstart panmove", SideBar.panPanel)
+        .bind("swiperight", SideBar.hidePanel)
+        .bind("panend", SideBar.panPanelEnd);
+      SideBar.cover
+        .bind("panstart panmove", SideBar.panPanel)
+        .bind("swiperight", SideBar.hidePanel)
+        .bind("panend", SideBar.panPanelEnd)
+        .bind("click", SideBar.hidePanel);
+    },
+    hidePartPanel: function(value){
+      SideBar.panel.offset({left:value});
+      var op = (value+300)*0.0013;
+      SideBar.cover.show().css({"opacity": op});
+    },
+    panPanel: function(e){
+      var g = e.gesture;
+      if(g.deltaX <= 0 && g.deltaX <= SideBar.panel.width()){
+        SideBar.hidePartPanel(g.deltaX);
+      }else if(g.deltaX > 0){
+        SideBar.hidePartPanel(0);
+      }
+    },
+    panPanelEnd: function(e){
+      var g = e.gesture;
+      if(g.deltaX >= -100) {
+        SideBar.showPanel();
+      }else if(g.deltaX < -100) {
+        SideBar.hidePanel();
+      }
+    },
+
+  }
+
+  SideBar.init($("#sidepanel"), $("#sidepanelcover"));
+
+  $(".showsidepanel").click(function(){
+    SideBar.showPanel();
+  });
+
+
+
+
 })
 
 
