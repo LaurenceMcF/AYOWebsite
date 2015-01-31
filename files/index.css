@@ -1,6 +1,13 @@
 body{
   font-family:sans-serif;
 }
+/*
+green:#7CB342 #fff
+purple:#7E57C2 #fff
+blue:#4285F4 #fff
+orange:#F09300 #fff
+*/
+
 
 .logger{
   position:absolute;
@@ -34,13 +41,23 @@ body{
 }
 
 #page1{
-  background:#00f;
+  background:#4285F4;
   color:#fff;
 }
 
 #page2{
-  background:#0f0;
-  color:#000;
+  background:#7CB342;
+  color:#fff;
+}
+
+#page3{
+  background:#7E57C2;
+  color:#fff;
+}
+
+#page4{
+  background:#F09300;
+  color:#fff;
 }
 
 
