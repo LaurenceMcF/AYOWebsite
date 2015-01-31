@@ -15,7 +15,6 @@ $(function(){
   $(".page").each(function(){$(this).hammer(hammerOptions())});
 
   var pages = $.map($(".page").toArray(), function(obj){ return $(obj)});
-  console.log(pages);
   $.each(pages, function(index, obj){
     obj
       .offset({left:$(window).width()})
@@ -26,6 +25,16 @@ $(function(){
   pages[curPageIndex].offset({left:0});
 
   var Actions = {
+    gotoPage: function(page){
+      if(page < 0 || page >= pages.length){
+        return;
+      }
+      for(var i = 0; i < pages.length; i++){
+        if(pages[i].offset().left == 0){
+          Actions.showPage(page, i);
+        }
+      }
+    },
     showPage: function(pageToSee, pageDuringTrans, pageToReset){
       var width = $(window).width();
 
@@ -90,6 +99,10 @@ $(function(){
     .bind("swipeleft", function(){console.log("sl"+index);Actions.showPage(index+1, index)})
     .bind("swiperight", function(){console.log("sr"+index);Actions.showPage(index-1, index)})
     .bind("panend", function(e){console.log("pe"+index);Actions.panEnd(e, index)});
+  });
+
+  $("#gotoPage3").click(function(){
+    Actions.gotoPage(2);
   });
 
 })
