@@ -5,9 +5,6 @@ $(function(){
     }
   })($(".log"))
 
-  var page1 = $("#page1");
-  var page2 = $("#page2");
-
   var hammerOptions = function(){
     return {recognizers: [
       [Hammer.Pan, {threshold:5, pointers:0}],
@@ -15,11 +12,18 @@ $(function(){
       [Hammer.Tap]
     ]};
   }
-  page1.hammer(hammerOptions());
-  page2.hammer(hammerOptions());
-  page2.offset({left:$(window).width()});
-  page2.width($(window).width());
-  page1.width($(window).width())
+  $(".page").each(function(){$(this).hammer(hammerOptions())});
+
+  var pages = $.map($(".page").toArray(), function(obj){ return $(obj)});
+  console.log(pages);
+  $.each(pages, function(index, obj){
+    obj
+      .offset({left:$(window).width()})
+      .width($(window).width());
+  });
+
+  var curPageIndex  = 0;
+  pages[curPageIndex].offset({left:0});
 
   var Actions = {
     showPage: function(pagea, pageb, reverse) {
@@ -31,43 +35,81 @@ $(function(){
         pageb.animate({left: $(window).width()}, 100);
       }
     },
-    showNext: function() {
-      Actions.showPage(page1, page2, false);
+    showNext: function(page) {
+      console.log("next");
+      Actions.showPage(pages[page - 1], pages[page], false);
+      curPageIndex = page;
     },
-    showCurrent: function() {
-      Actions.showPage(page1, page2, true);
+    showCurrentFromNext: function() {
+      Actions.showPage(pages[curPageIndex], pages[curPageIndex + 1], true);
     },
-    showPartPanel: function(value){
-      page1.offset({left: value});
-      page2.offset({left: $(window).width() + value});
+    showCurrentFromPrev: function() {
+      Actions.showPage(pages[curPageIndex], pages[curPageIndex - 1], false);
     },
-    panNext: function(e){
-      var g = e.gesture;
-      if(g.deltaX <= 0 && g.deltaX <= $(window).width()){
-        Actions.showPartPanel(g.deltaX);
-      }else if(g.deltaX < 0){
-        Actions.showPartPanel(0);
+    showPrev: function(page){
+      console.log("prev");
+      Actions.showPage(pages[page], pages[page+1], true);
+      curPageIndex = page;
+    },
+    pan: function(e){
+      //TODO: FIX width this: g.deltaX <= $(window).width() to limit errors
+      //TODO: Fix not going all the way to end on first/ last
+      var dx = e.gesture.deltaX;
+      var width = $(window).width();
+      if(dx <= 0 && curPageIndex < pages.length){
+        if(curPageIndex > 0) pages[curPageIndex-1].offset({left: 0-width });
+        pages[curPageIndex].offset({left: dx});
+        pages[curPageIndex+1].offset({left: width + dx});
+      }else if(dx > 0 && curPageIndex > 0){
+        pages[curPageIndex-1].offset({left: dx - width});
+        pages[curPageIndex].offset({left: dx});
+        if(curPageIndex < pages.length) pages[curPageIndex+1].offset({left: width});
       }
     },
-    panNextEnd: function(e){
-      var g = e.gesture;
-      if(g.deltaX <= 0-( $(window).width() / 2)) {
-        Actions.showNext();
-      }else if(g.deltaX > 0-($(window).width() / 2)) {
-        Actions.showCurrent();
+    panEnd: function(e, page){
+      //TODO: Additional setting for the non visible el and checking reset can be done
+      //TODO: Stop duplicating show with the swipe commands
+      var dx = e.gesture.deltaX;
+      var width = $(window).width();
+      var w2 = width/2;
+      var adx = Math.abs(dx);
+      if(adx > w2){
+        if(dx > 0){
+          Actions.showPrev(page-1);
+        }else{
+          Actions.showNext(page+1);
+        }
+      }else{
+        if(dx > 0){
+          Actions.showCurrentFromPrev();
+        }else{
+          Actions.showCurrentFromNext();
+        }
       }
     },
   }
 
-  page1
-    .bind("panstart panmove", Actions.panNext)
-    .bind("swipeleft", Actions.showNext)
-    .bind("panend", Actions.panNextEnd);
+  $.each(pages, function(index, obj){
+    //if(index < 1){
+    obj
+    .bind("panstart panmove", Actions.pan)
+    .bind("swipeleft", function(){console.log("sl"+index);Actions.showNext(index+1)})
+    .bind("swiperight", function(){console.log("sr"+index);Actions.showPrev(index-1)})
+    .bind("panend", function(e){console.log("pe"+index);Actions.panEnd(e, index)});
+    //}
+  });
 
-  page2
+
+  /*pages[curPageIndex]
+    .bind("panstart panmove", Actions.pan)
+    .bind("swipeleft", function(){Actions.showNext(0+1)})
+    .bind("swipeprev", function(){Actions.showPrev(0-1)})
+    .bind("panend", function(e){Actions.panEnd(e, 0)});*/
+
+  /*page2
     .bind("panstart panmove", Actions.panNext)
     .bind("swiperight", function(){Actions.showPage(page1, page2, true)})
-    .bind("panend", Actions.panNextEnd)
+    .bind("panend", Actions.panNextEnd)*/
 
 
 })
