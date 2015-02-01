@@ -16,22 +16,32 @@ var mui = (function(mui){
 
   var PageManager = {
     pages: [],
-    init: function(filter, uiFuncAll, uiFuncFirst){
+    scrolling: false,
+    init: function(filter){
       $(filter).each(function(){$(this).hammer(hammerOptions())});
       PageManager.pages = $.map($(".page").toArray(), function(obj){ return $(obj)});
-      if(uiFuncAll){
-        $.each(PageManager.pages, function(index, obj){
-          uiFuncAll(obj);
+      $.each(PageManager.pages, function(index, obj){
+        obj.offset({left:$(window).width()}).width($(window).width());
 
-          obj
-          .bind("panstart panmove", function(e){PageManager.pan(e, index)})
-          .bind("swipeleft", function(){console.log("sl"+index);PageManager.showPage(index+1, index)})
-          .bind("swiperight", function(){console.log("sr"+index);PageManager.showPage(index-1, index)})
-          .bind("panend", function(e){console.log("pe"+index);PageManager.panEnd(e, index)});
+        obj
+        .bind("panmove", function(e){
+          PageManager.pan(e, index);
+        })
+        .bind("panstart", function(e){
+          console.log("ps"+index);
+          console.log(e);
+          console.log(Math.abs(e.gesture.deltaX) < Math.abs(e.gesture.deltaY));
+          if(Math.abs(e.gesture.deltaX) < Math.abs(e.gesture.deltaY)){
+            PageManager.scrolling = true;
+          }
+          PageManager.pan(e, index);
+        })
+        .bind("swipeleft", function(){console.log("sl"+index);PageManager.showPage(index+1, index)})
+        .bind("swiperight", function(){console.log("sr"+index);PageManager.showPage(index-1, index)})
+        .bind("panend", function(e){console.log("pe"+index);PageManager.panEnd(e, index)});
 
-        });
-      }
-      if(uiFuncFirst){ uiFuncFirst(PageManager.pages[0]) };
+      });
+      PageManager.pages[0].offset({left:0});
     },
     gotoPage: function(page){
       SideBar.hidePanel();
@@ -63,17 +73,20 @@ var mui = (function(mui){
           PageManager.pages[pageToReset].offset({left: width });
         }
       }
+
+      PageManager.scrolling = false;
     },
     pan: function(e, page){
+      console.log("Scrolling: "+PageManager.scrolling)
       var dx = e.gesture.deltaX;
       var width = $(window).width();
       dx = (dx > width ? width : (dx < 0-width ? 0-width : dx));
 
-      if(dx < 0 && page < PageManager.pages.length -1){
+      if(dx < 0 && page < PageManager.pages.length -1 && !PageManager.scrolling){
         if(page > 0) PageManager.pages[page-1].offset({left: 0-width });
         PageManager.pages[page].offset({left: dx});
         PageManager.pages[page+1].offset({left: width + dx});
-      }else if(dx > 0 && page > 0){
+      }else if(dx > 0 && page > 0 && !PageManager.scrolling){
         if(page < PageManager.pages.length - 1) PageManager.pages[page+1].offset({left: width });
         PageManager.pages[page].offset({left: dx});
         PageManager.pages[page-1].offset({left: dx - width});
@@ -86,19 +99,20 @@ var mui = (function(mui){
       var width = $(window).width();
       var w2 = width/2;
       var adx = Math.abs(dx);
-      if(adx > w2){
+      if(adx > w2 && !PageManager.scrolling){
         if(dx > 0){
           PageManager.showPage(page-1, page, page+1);
         }else{
           PageManager.showPage(page+1, page, page-1);
         }
-      }else{
+      }else if(!PageManager.scrolling){
         if(dx > 0){
           PageManager.showPage(page, page-1, page+1);
         }else{
           PageManager.showPage(page, page+1, page+1);
         }
       }
+      PageManager.scrolling = false;
     },
   }
 
@@ -195,11 +209,7 @@ var mui = (function(mui){
 
 $(function(){
 
-  mui.PageManagerInit(".page", function(obj){
-    obj.offset({left:$(window).width()}).width($(window).width());
-  }, function(obj){
-    obj.offset({left:0});
-  });
+  mui.PageManagerInit(".page");
 
   $("#gotoPage3").click(function(){
     mui.PageManagerGotoPage(2);
@@ -212,14 +222,14 @@ $(function(){
   });
 
   $(".docenter").offset({
-    left: ($(window).width() - $(".docenter").width())/2,
+    //left: ($(window).width() - $(".docenter").width())/2,
     top: ($(window).height() - $(".docenter").height())/2,
-  }).click(function(){
+  })/*.click(function(){
     $(".docenter").animate({
       top:20,
       fontSize:"2em",
     }, 200)
-  });
+  });*/
 
 
 });
