@@ -120,17 +120,6 @@ var mui = (function(mui){
   mui.PageManagerInit = PageManager.init;
   mui.PageManagerGotoPage = PageManager.gotoPage;
 
-  /*PageManager.init(".page", function(obj){
-    obj.offset({left:$(window).width()}).width($(window).width());
-  }, function(obj){
-    obj.offset({left:0});
-  });
-
-  $("#gotoPage3").click(function(){
-    PageManager.gotoPage(2);
-  });*/
-
-
   var SideBar = {
     panel: {},
     cover: {},
@@ -186,12 +175,6 @@ var mui = (function(mui){
     },
 
   }
-
-  //SideBar.init($("#sidepanel"), $("#sidepanelcover"));
-
-  //$(".showsidepanel").click(function(){
-  //  SideBar.showPanel();
-  //});
 
   mui.SideBarInit = SideBar.init;
   mui.SideBarShow = SideBar.showPanel;
