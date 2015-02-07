@@ -1,4 +1,5 @@
 //https://github.com/benmajor/jQuery-Touch-Events/blob/master/src/jquery.mobile-events.js
+//https://github.com/marcol/jquery-touch/blob/master/jquery-simple-touch.js
 
 (function($){
 
@@ -6,7 +7,6 @@
 
   $.event.special.swipe = {
     setup: function(){
-      console.log("dfgkdslgjsdlfj");
       var $el = $(this);
 
       var originalCoord = {
@@ -96,6 +96,9 @@
       $el.on('touchend', touchEnd);
     },
   }
+
+  $.event.special.swipeleft = $.event.special.swipe;
+  $.event.special.swiperight = $.event.special.swipe;
 
 
 })(jQuery)
