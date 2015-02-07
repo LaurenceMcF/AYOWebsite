@@ -1,4 +1,4 @@
-var mui = (function(mui){
+/*var mui = (function(mui){
 
   mui.log = (function(el){
     return function(text){
@@ -215,15 +215,70 @@ $(function(){
   });*/
 
 
+//});
+
+
+$(".page").on("swipe", function(e){console.log(e.dx+" "+e.completed+" "+e.percentage)});
+$(".page").width($(window).width());
+$(".page").css("left", $(window).width());
+$(".page:first").css("left", 0);
+
+
+$(".page").filter(":not(:first)").on("swiperight", function(e){
+  if(e.completed){
+    $(this).css("transition", "all .3s");
+    $(this).prev().css("transition", "all .3s");
+  }else{
+    $(this).css("transition", "0");
+    $(this).prev().css("transition", "0");
+  }
+  $(this).css("left", e.percentage*$(window).width());
+  $(this).prev().css("left", (e.percentage*$(window).width() -  $(window).width()));
+});
+$(".page").filter(":not(:last)").on("swipeleft", function(e){
+  if(e.completed){
+    $(this).css("transition", "all .3s");
+    $(this).next().css("transition", "all .3s");
+  }else{
+    $(this).css("transition", "0");
+    $(this).next().css("transition", "0");
+  }
+  $(this).css("left", 0-(e.percentage*$(window).width()));
+  $(this).next().css("left", $(window).width()-(e.percentage*$(window).width()));
 });
 
 
+//$(".tester").width($(window).width());
+//$(".tester").css("left", $(window).width());
+//$("#tester").css("left", 0);
 
 
+/*$("#tester2").on("swiperight", function(e){
+  console.log("ssd");
+  //console.log(this);
+  //$(this).css("left", e.percentage*$(window).width());
+});
+$("#tester2").on("swipeleft", function(e){
+  console.log("ssd");
+  //$(this).css("left", 0-(e.percentage*$(window).width()));
+  //$(".page").css("left", $(window).width()-(e.percentage*$(window).width()));
+});*/
+
+/*
+$(".tester").on("swipe", function(e){console.log(e.dx+" "+e.completed+" "+e.percentage)});
+$(".tester").width($(window).width());
+//$("#tester2").width($(window).width());
+$("#tester2").css("left", $(window).width());
 
 
-
-
+$("#tester").on("swiperight", function(e){
+  $("#tester").css("left", e.percentage*$(window).width());
+});
+$("#tester").on("swipeleft", function(e){
+  $("#tester").css("left", 0-(e.percentage*$(window).width()));
+  $("#tester2").css("left", $(window).width()-(e.percentage*$(window).width()));
+});
+*/
 
 
 
