@@ -19,8 +19,10 @@ $(function(){
   logoEl.css("top", 20);
   mdsumEl.css("top", (height - mdsumEl.height())/2);
 
-  var boxEl = $("#welcomescreen .boxContainer");
-  boxEl.css("left", width/4);
+  //var boxEl = $("#welcomescreen .boxContainer");
+  //boxEl.css("left", width/4);
 
 
 });
+
+//Old width:14.79046059;

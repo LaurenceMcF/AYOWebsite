@@ -14,6 +14,7 @@ body{
   font-size:6em;
   display:inline-block;
   position:absolute;
+  font-weight:bold;
 }
 
 #welcomescreen .midsumtext{
@@ -27,23 +28,23 @@ body{
 
 #welcomescreen .boxContainer{
   position:absolute;
-  height:96px;
-  width:96px;
+  width:100%;
+  overflow:hidden;
+  left:0;
+  top:75%;
 }
 
 #welcomescreen .box{
-  background-color:#000;
+  background: url(Cloud01.svg);
+  background-size: 96px 96px;
   height:96px;
   width:96px;
   position:relative;
-  -webkit-animation: cloudmove 5s linear infinite; /* Chrome, Safari, Opera */
+  -webkit-animation: cloudmove 50s linear infinite; /* Chrome, Safari, Opera */
 }
 
 @-webkit-keyframes cloudmove {
-  0%   {left:0px; top:0px;}
-  25%  {left:20px; top:0px;}
-  50%  {left:0px; top:0px;}
-  75%  {left:-20px; top:0px;}
-  100% {left:0px; top:0px;}
+  0%   {left:100%;}
+  100% {left:-96px;}
 
 }
