@@ -3,8 +3,6 @@
 
 (function($){
 
-  console.log("sdf");
-
   $.event.special.swipe = {
     setup: function(){
       var $el = $(this);
@@ -24,6 +22,7 @@
         originalCoord.y = e.originalEvent.targetTouches[0].pageY;
         finalCoord.x = originalCoord.x;
         finalCoord.y = originalCoord.y;
+        dir = 0;
       }
 
       function touchMove(e){
