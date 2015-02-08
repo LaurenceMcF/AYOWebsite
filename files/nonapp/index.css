@@ -1,0 +1,49 @@
+body{
+  font-family:sans-serif;
+  background:#fff;
+  margin:0;
+}
+
+#welcomescreen{
+  background:#0A3E7B;
+  color:#fff;
+  position:relative;
+}
+
+#welcomescreen .logo{
+  font-size:6em;
+  display:inline-block;
+  position:absolute;
+}
+
+#welcomescreen .midsumtext{
+  font-size:3em;
+  width:400px;
+  position:absolute;
+  text-align:center;
+  margin:0;
+  padding:0;
+}
+
+#welcomescreen .boxContainer{
+  position:absolute;
+  height:96px;
+  width:96px;
+}
+
+#welcomescreen .box{
+  background-color:#000;
+  height:96px;
+  width:96px;
+  position:relative;
+  -webkit-animation: cloudmove 5s linear infinite; /* Chrome, Safari, Opera */
+}
+
+@-webkit-keyframes cloudmove {
+  0%   {left:0px; top:0px;}
+  25%  {left:20px; top:0px;}
+  50%  {left:0px; top:0px;}
+  75%  {left:-20px; top:0px;}
+  100% {left:0px; top:0px;}
+
+}
