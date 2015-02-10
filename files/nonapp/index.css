@@ -58,9 +58,9 @@ body{
 }
 
 @-webkit-keyframes midsumtext {
-  0% { bottom:0; }
-  50% { bottom:0; }
-  100% { bottom: 50%; }
+  0% { bottom:0; opacity:0;}
+  50% { bottom:0; opacity:0;}
+  100% { bottom: 50%; opacity:1;}
 }
 
 #hero .rays{
