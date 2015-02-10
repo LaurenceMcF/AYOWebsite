@@ -17,32 +17,50 @@ body{
   display:inline-block;
   position:absolute;
   font-weight:bold;
-  /*width:138px;
-  -webkit-animation: logoleft 5s linear infinite;*/
+  right:50%;
+  width:138px;
+  -webkit-animation: logoleft 1s;
+  top:20px;
 }
 
-/*@-webkit-keyframes logoleft {
+@-webkit-keyframes logoleft {
   from { transform: translate(69px); }
   to { transform: translate(0px); }
-}*/
+}
 
 
 #hero .smalllogotext{
   display:inline-block;
   position:absolute;
-  opacity:0;
   font-size:1.05em;
   margin-top:1px;
   margin-left:10px;
+  left:50%;
+  top:20px;
+  -webkit-animation: logoright 1s;
 }
+
+@-webkit-keyframes logoright {
+  from { transform: translate(-69px); opacity:0; }
+  to { transform: translate(0px); opacity:1; }
+}
+
 
 #hero .midsumtext{
   font-size:5em;
-  width:400px;
   position:absolute;
   text-align:center;
   margin:0;
   padding:0;
+  width:100%;
+  -webkit-animation: midsumtext 2s;
+  bottom:50%;
+}
+
+@-webkit-keyframes midsumtext {
+  0% { bottom:0; }
+  50% { bottom:0; }
+  100% { bottom: 50%; }
 }
 
 #hero .rays{
@@ -62,27 +80,28 @@ body{
   background-size: 400px 400px;
   height:400px;
   width:400px;
+  margin-left:-200px;
   position:absolute;
   -webkit-animation: rot 5s linear infinite;
 }
 
 #hero #cloud1{
-  left:10%;
+  left:25%;
   top:415px;
   -webkit-animation-duration: 6s;
 }
 #hero #cloud2{
-  left:30%;
+  left:40%;
   top:385px;
   -webkit-animation-duration: 12s;
 }
 #hero #cloud3{
-  left:45%;
+  left:60%;
   top:450px;
   -webkit-animation-duration: 8s;
 }
 #hero #cloud4{
-  left:65%;
+  left:75%;
   top:400px;
   -webkit-animation-duration: 10s;
 }
