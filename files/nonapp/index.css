@@ -168,12 +168,61 @@ ul{
   margin:0;
 }
 
+.concerts{
+  height:100px;
+  width:100%;
+  bottom:0;
+  position:absolute;
+  color:#000;
+}
+
+.concerts ul{
+  list-style-type:none;
+  padding:0;
+  margin:0 auto;
+  max-width:900px;
+  -webkit-animation: concertsFadeIn 3s;
+}
+
+@-webkit-keyframes concertsFadeIn {
+  0% { opacity:0;}
+  66% { opacity:0;}
+  100% { opacity:1;}
+}
+
 .concerts ul li{
+  float:left;
+  width:25%;
+  text-align:center;
+}
+
+.concerts .town{
+  display:block;
+  font-size:2em;
+  margin-bottom:5px;
+}
+
+.concerts .location{
+  display:block;
+  margin-bottom:5px;
+}
+
+.concerts .time{
+  display:block;
+  font-size:1.3em;
+}
+
+.pullquote{
+  width:300px;
+  float:right;
+  font-size:2em;
+  display:block;
 }
 
 .programme{
   list-style-type:none;
   padding:0;
+  max-width:550px; /*Needs to change automatically*/
 }
 
 .programme li .detailscontainer{
