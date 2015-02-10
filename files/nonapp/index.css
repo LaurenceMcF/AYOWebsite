@@ -4,21 +4,40 @@ body{
   margin:0;
 }
 
-#welcomescreen{
+#hero{
   background:#0A3E7B;
+  background:radial-gradient(circle at 50% 100%, #4A7EEB, #0A3E7B);
   color:#fff;
   position:relative;
+  overflow:hidden;
 }
 
-#welcomescreen .logo{
-  font-size:6em;
+#hero .logo{
+  font-size:4em;
   display:inline-block;
   position:absolute;
   font-weight:bold;
+  /*width:138px;
+  -webkit-animation: logoleft 5s linear infinite;*/
 }
 
-#welcomescreen .midsumtext{
-  font-size:3em;
+/*@-webkit-keyframes logoleft {
+  from { transform: translate(69px); }
+  to { transform: translate(0px); }
+}*/
+
+
+#hero .smalllogotext{
+  display:inline-block;
+  position:absolute;
+  opacity:0;
+  font-size:1.05em;
+  margin-top:1px;
+  margin-left:10px;
+}
+
+#hero .midsumtext{
+  font-size:5em;
   width:400px;
   position:absolute;
   text-align:center;
@@ -26,25 +45,153 @@ body{
   padding:0;
 }
 
-#welcomescreen .boxContainer{
+#hero .rays{
   position:absolute;
-  width:100%;
-  overflow:hidden;
-  left:0;
-  top:75%;
+  background: url(rays.png);
+  background-size:100%;
+  width:2000px;
+  height:2000px;
+  bottom:-1000px;
+  left:50%;
+  margin-left:-1000px;
+  -webkit-animation: spin 90s linear infinite;
 }
 
-#welcomescreen .box{
+#hero .cloud{
   background: url(Cloud01.svg);
-  background-size: 96px 96px;
-  height:96px;
-  width:96px;
-  position:relative;
-  -webkit-animation: cloudmove 50s linear infinite; /* Chrome, Safari, Opera */
+  background-size: 400px 400px;
+  height:400px;
+  width:400px;
+  position:absolute;
+  -webkit-animation: rot 5s linear infinite;
 }
 
-@-webkit-keyframes cloudmove {
-  0%   {left:100%;}
-  100% {left:-96px;}
+#hero #cloud1{
+  left:10%;
+  top:415px;
+  -webkit-animation-duration: 6s;
+}
+#hero #cloud2{
+  left:30%;
+  top:385px;
+  -webkit-animation-duration: 12s;
+}
+#hero #cloud3{
+  left:45%;
+  top:450px;
+  -webkit-animation-duration: 8s;
+}
+#hero #cloud4{
+  left:65%;
+  top:400px;
+  -webkit-animation-duration: 10s;
+}
 
+@-webkit-keyframes rot {
+  from {
+    transform: rotate(0deg)
+               translate(-10px)
+               rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg)
+               translate(-10px)
+               rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section{
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 0;
+}
+
+.lightbluebg{
+  background:#4A7EEB;
+  color:#fff;
+}
+
+ul{
+  margin:0;
+}
+
+.section.concerts ul{
+  list-style-type:none;
+  padding:0;
+}
+
+.wrapper{
+  position: relative;
+  width:100%;
+  background:#999;
+  overflow:hidden;
+  transition: height .2s;
+}
+
+.programmelist{
+  background:#eee;
+  width:200px;
+  top:0;
+  position: absolute;
+}
+
+.programmelist ul{
+  list-style-type:none;
+  padding:0;
+}
+
+.programmelist ul li{
+  padding:10px;
+  cursor:pointer;
+}
+
+.programmelist ul li.vis{
+  color:#0A3E7B;
+}
+
+.programmedetail{
+  margin-left:200px;
+  position: relative;
+}
+
+.programmedetail div{
+  opacity:0;
+  position:absolute;
+  top:0;
+  transition: opacity .2s;
+  padding:10px;
 }
