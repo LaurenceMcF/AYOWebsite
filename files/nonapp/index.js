@@ -10,17 +10,20 @@ $(function(){
     .css("bottom", 0-$(window).height())
     .css("margin-left", 0-$(window).height());
 
-  //Programme List javascript
-  var wrapEl = $(".wrapper");
-  var minHeight = $(".programmelist").outerHeight();
-  wrapEl.css("height", minHeight);
-  $(".programmelist ul li").click(function(e){
-    $(".programmelist ul li").removeClass("vis");
-    $(this).addClass("vis");
-    $(".programmedetail div").css("opacity", 0);
-    var detailEl = $(".programmedetail div[data-prog-item='"+$(this).attr("data-prog-item")+"']");
-    detailEl.css("opacity", 1);
-    wrapEl.css("height", Math.max(detailEl.outerHeight(), minHeight));
-  })
+  //Programme menu
+  $(".programme li .head").click(function(e){
+    var el = $(this).parent();
+    if(el.hasClass("reveal")){
+      el.removeClass("reveal");
+      el.children(".detailscontainer").css({
+        "height": 0,
+      });
+    }else{
+      el.addClass("reveal");
+      el.children(".detailscontainer").css({
+        "height": el.children(".detailscontainer").children(".details").outerHeight(),
+      });
+    }
+  });
 
 });

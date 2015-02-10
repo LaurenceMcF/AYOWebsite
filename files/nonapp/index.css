@@ -168,49 +168,34 @@ ul{
   margin:0;
 }
 
-.section.concerts ul{
+.concerts ul li{
+}
+
+.programme{
   list-style-type:none;
   padding:0;
 }
 
-.wrapper{
-  position: relative;
-  width:100%;
-  background:#999;
+.programme li .detailscontainer{
+  height:0;
   overflow:hidden;
-  transition: height .2s;
+  transition:all .2s;
 }
 
-.programmelist{
-  background:#eee;
-  width:200px;
-  top:0;
-  position: absolute;
+.programme li {
+  border-bottom:1px solid #0A3E7B;
 }
 
-.programmelist ul{
-  list-style-type:none;
-  padding:0;
-}
-
-.programmelist ul li{
-  padding:10px;
+.programme li .head{
   cursor:pointer;
+  font-size:1.3em;
+  padding:10px 0 10px 0;
 }
 
-.programmelist ul li.vis{
+.programme li.revael .head{
   color:#0A3E7B;
 }
 
-.programmedetail{
-  margin-left:200px;
-  position: relative;
-}
-
-.programmedetail div{
-  opacity:0;
-  position:absolute;
-  top:0;
-  transition: opacity .2s;
-  padding:10px;
+.programme li .details{
+  padding-bottom:10px;
 }
