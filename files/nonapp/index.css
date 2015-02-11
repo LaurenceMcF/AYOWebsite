@@ -4,6 +4,12 @@ body{
   margin:0;
 }
 
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
 #hero{
   background:#0A3E7B;
   background:radial-gradient(circle at 50% 100%, #4A7EEB, #0A3E7B);
@@ -222,7 +228,7 @@ ul{
 .programme{
   list-style-type:none;
   padding:0;
-  max-width:550px; /*Needs to change automatically*/
+  margin-right:350px;
 }
 
 .programme li .detailscontainer{
@@ -243,6 +249,10 @@ ul{
 
 .programme li.revael .head{
   color:#0A3E7B;
+}
+
+.programme .head .composer{
+  font-weight:bold;
 }
 
 .programme li .details{
