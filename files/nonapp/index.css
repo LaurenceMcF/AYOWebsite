@@ -258,3 +258,18 @@ ul{
 .programme li .details{
   padding-bottom:10px;
 }
+
+.orchestra .fourcolumn{
+  float:left;
+  width:25%;
+}
+
+.orchestra ul{
+  list-style-type:none;
+  padding:0;
+}
+
+.orchestra ul li.instrument{
+  font-weight:bold;
+  margin-top:10px;
+}
