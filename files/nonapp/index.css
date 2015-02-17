@@ -10,6 +10,30 @@ body{
   clear:both;
 }
 
+.popupBacking{
+  background-color:#4A7EEB;
+  opacity:0.7;
+  z-index:9;
+  display:none;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.popup{
+  background:#fff;
+  border-radius:2px;
+  z-index:10;
+  display:none;
+  position:fixed;
+  top:15%;
+  bottom:15%;
+  width:800px;
+  max-width:100%;
+}
+
 #hero{
   background:#0A3E7B;
   background:radial-gradient(circle at 50% 100%, #4A7EEB, #0A3E7B);
@@ -269,7 +293,45 @@ ul{
   padding:0;
 }
 
+.orchestra ul li:hover{
+  cursor:pointer;
+  text-decoration:underline;
+}
+
 .orchestra ul li.instrument{
   font-weight:bold;
   margin-top:10px;
+}
+
+.orchestra ul li.instrument:hover{
+  cursor:default;
+  text-decoration:none;
+}
+
+.orchestra .orchpopup{
+  overflow:auto;
+  padding:10px 20px;
+}
+
+.orchestra .orchpopup .orchpopupclose{
+  float:right;
+  color:#ccc;
+  cursor:pointer;
+  margin:10px 0 20px 0;
+}
+
+.orchestra .orchpopup .orchpopupclose:hover{
+  text-decoration:underline;
+}
+
+.orchestra .orchpopup .orchpopupname{
+  margin:10px 0 20px 0;
+}
+
+.orchestra .orchpopup .orchpopupimg{
+  float:left;
+  background:#000;
+  margin:0 10px 10px 0;
+  max-width:350px;
+  max-height:350px;
 }

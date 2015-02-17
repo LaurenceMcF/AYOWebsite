@@ -3,7 +3,7 @@ $(function(){
   //Set height of hero to window height
   $("#hero").css("height", $(window).height());
 
-  //Set rays size
+  //Set rays size (depending on height of window)
   $(".rays")
     .css("height", $(window).height()*2)
     .css("width", $(window).height()*2)
@@ -25,5 +25,31 @@ $(function(){
       });
     }
   });
+
+  //Orchestra popups
+  $(".orchestra ul li").not(".instrument").click(function(e){
+    var close = function(){
+      $(".popupBacking").hide();
+      $(".orchpopup").hide();
+    };
+    $(".popupBacking").show().click(close);
+    var popup = $(".orchpopup");
+    var name = $(this).html();
+    popup.css("left", ($(window).width() - popup.width())/2)
+    popup.children(".orchpopupname").html(name);
+    popup.children(".orchpopupclose").click(close);
+    popup.children(".orchpopuptext").html(people[name]['text']);
+    popup.children(".orchpopupimg").attr("src", people[name]['image']);
+    popup.show();
+  })
+
+  var people = {
+    "harris":{
+      image:"rays.svg", text:"sdkjfgsdkfjhsdfjhsdkfjhalkjhafds"
+    },
+    "Harris":{
+      image:"Cloud01.svg", text:"tiyouiyoyuio"
+    }
+  }
 
 });
