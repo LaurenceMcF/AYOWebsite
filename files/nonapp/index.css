@@ -1,5 +1,5 @@
 body{
-  font-family:sans-serif;
+  font-family:'Candara', sans-serif;
   background:#fff;
   margin:0;
 }
@@ -71,7 +71,7 @@ body{
 
 #hero .rays{
   position:absolute;
-  background: url(rays.png);
+  background: url(rays.svg);
   background-size:100%;
   width:2000px;
   height:2000px;
