@@ -11,7 +11,7 @@ body{
 }
 
 .popupBacking{
-  background-color:#4A7EEB;
+  background-color:#000;
   opacity:0.7;
   z-index:9;
   display:none;
@@ -360,13 +360,13 @@ ul{
   max-height:350px;
 }
 
-.aboutus .gallerypopup{
+.aboutus .gallerypopup, .aboutus .historypopup{
   width:900px;
   height:504px;
   padding-top:2px;
   background-color:#000;
 }
 
-.aboutus .showGallery{
+.aboutus .showGallery, .aboutus .showHistory{
   cursor:pointer;
 }
