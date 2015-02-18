@@ -184,8 +184,26 @@ h2{
 
 
 
+.fixedtop{
+  position:absolute;
+  width:100%;
+  z-index:8;
+}
 
+.fixedtop ul{
+  list-style-type:none;
+  padding:0;
+}
 
+.fixedtop ul li{
+  float:right;
+  margin-left:20px;
+}
+
+.fixed {
+    position:fixed;
+    top:0;
+}
 
 
 
@@ -340,4 +358,15 @@ ul{
   margin:0 10px 10px 0;
   max-width:350px;
   max-height:350px;
+}
+
+.aboutus .gallerypopup{
+  width:900px;
+  height:504px;
+  padding-top:2px;
+  background-color:#000;
+}
+
+.aboutus .showGallery{
+  cursor:pointer;
 }
