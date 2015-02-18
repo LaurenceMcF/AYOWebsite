@@ -1,15 +1,15 @@
 $(function(){
 
   //Set height of hero to window height
-  $("#hero").css("height", $(window).height());
-  var height = $(window).height();
+  var height = Math.max(500,$(window).height());
+  $("#hero").css("height", height);
 
   //Set rays size (depending on height of window)
   $(".rays")
-    .css("height", $(window).height()*2)
-    .css("width", $(window).height()*2)
-    .css("bottom", 0-$(window).height())
-    .css("margin-left", 0-$(window).height());
+    .css("height", height*2)
+    .css("width", height*2)
+    .css("bottom", 0-height)
+    .css("margin-left", 0-height);
 
   //Fixed top menu
   $(window).scroll(function () {

@@ -117,28 +117,29 @@ h2{
   height:400px;
   width:400px;
   margin-left:-200px;
+  margin-bottom:-200px;
   position:absolute;
   -webkit-animation: rot 5s linear infinite;
 }
 
 #hero #cloud1{
   left:25%;
-  top:415px;
+  bottom:20px;
   -webkit-animation-duration: 6s;
 }
 #hero #cloud2{
   left:40%;
-  top:385px;
+  bottom:70px;
   -webkit-animation-duration: 12s;
 }
 #hero #cloud3{
   left:60%;
-  top:450px;
+  bottom:30px;
   -webkit-animation-duration: 8s;
 }
 #hero #cloud4{
   left:75%;
-  top:400px;
+  bottom:50px;
   -webkit-animation-duration: 10s;
 }
 
@@ -205,6 +206,7 @@ h2{
 }
 
 @media all and (max-width: 700px) {
+
   .concerts ul li{
     float:none;
     width:auto;
@@ -214,9 +216,23 @@ h2{
   }
   .concerts .town, .concerts .location, .concerts .time{
     display:inline-block;
+    font-size:1.5em;
+  }
+  .concerts .town{
+    font-weight:bold;
   }
 }
 
+@media all and (max-height:700px){
+  #hero .midsumtext{
+    font-size:3.5em;
+  }
+  .concerts .town, .concerts .location, .concerts .time{
+    display:inline-block;
+    font-size:1em;
+  }
+
+}
 
 
 
@@ -266,12 +282,22 @@ h2{
     top:0;
 }
 
+@media all and (max-width: 700px) {
+  .fixedtop ul li{
+    display:none;
+  }
+
+  .fixedtop ul li.left{
+    display:block;
+  }
+}
+
 
 
 .section{
   max-width:900px;
   margin:0 auto;
-  padding:10px 0;
+  padding:10px 10px;
 }
 
 .lightbluebg{
