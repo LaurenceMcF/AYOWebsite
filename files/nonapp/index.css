@@ -198,6 +198,7 @@ h2{
 .fixedtop ul li{
   float:right;
   margin-left:20px;
+  cursor:pointer;
 }
 
 .fixed {
@@ -216,6 +217,10 @@ h2{
 .lightbluebg{
   background:#4A7EEB;
   color:#fff;
+}
+
+.vlbluebg{
+  background:#F9FAFF;
 }
 
 ul{
@@ -317,6 +322,10 @@ ul{
   padding:0;
 }
 
+.orchestra ul li{
+  margin-bottom:5px;
+}
+
 .orchestra ul li:hover{
   cursor:pointer;
   text-decoration:underline;
@@ -324,7 +333,7 @@ ul{
 
 .orchestra ul li.instrument{
   font-weight:bold;
-  margin-top:10px;
+  margin:20px 0 10px 0;
 }
 
 .orchestra ul li.instrument:hover{
