@@ -34,6 +34,9 @@ $(function(){
       el.children(".detailscontainer").css({
         "height": 0,
       });
+      el.children(".detailscontainer").css({
+        "height": 0,
+      });
     }else{
       el.addClass("reveal");
       el.children(".detailscontainer").css({
@@ -41,6 +44,10 @@ $(function(){
       });
     }
   });
+  var firstRevael = $(".programme .reveal");
+  firstRevael.children(".detailscontainer").css({
+    "height": firstRevael.children(".detailscontainer").children(".details").outerHeight(),
+  })
 
   //Orchestra popups
   $(".orchestra ul li").not(".instrument").click(function(e){
