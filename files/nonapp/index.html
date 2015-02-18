@@ -5,7 +5,7 @@
   <title>AYO - Midsummer Dreams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="jquery.js"></script>
-  <script src="galleria/galleria-1.3.3.min.js"></script>
+  <script src="galleria/galleria-1.4.2.min.js"></script>
   <script src="galleria/themes/classic/galleria.classic.min.js"></script>
   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
@@ -19,7 +19,7 @@
   -The Orchestra
   -Support
   -About AYO (+History, Gallery)
-  -Footer (Sponsers, Alumi, Join, ...)
+  -Footer (Sponsers)
 -->
 <div class="popupBacking"></div>
 
@@ -58,11 +58,11 @@
   </div>
 </div>
 
-<div class="lightbluebg fixedtop"><div class="section">
+<div class="lightbluebg fixedtop"><div class="section sectionnopadbottom">
   <ul class="clearfix">
     <li class="left" data-goto="#hero"><b>AYO</b> Midsummer Dreams</li>
     <li data-goto=".join">Join</li>
-    <li data-goto=".alumni">Alumni</li>
+    <li data-goto=".futureconcerts">Future Concerts</li>
     <li data-goto=".aboutus">About AYO</li>
     <li data-goto=".orchestra">Orchestra</li>
     <li data-goto=".programmesection">Programme</li>
@@ -71,17 +71,54 @@
 
 <div style="height:36px;"></div>
 
+<div class="vlbluebg">
+<div class="section sectionnopadbottom likeoremail">
+  Follow us on <a href="http://www.facebook.com/ayorchestra">Facebook</a>
+   or join our <a class="joinmail" href="javascript:void(0)">Mailing List.</a>
+   If you would like to donate please contact our
+   <a href="mailto:treasurer@ayo.org.nz?Subject=I%20would%20like%20to%20make%20a%20donation" target="_top">Treasurer</a>.
+
+   <div class="popup mailpopup">
+     <!-- Begin MailChimp Signup Form -->
+     <span class="popupclose close">Close</span>
+    <div id="mc_embed_signup">
+    <form action="http://ayo.us4.list-manage1.com/subscribe/post?u=c145bd7bb96a8154e58f63cc5&amp;id=acf1ff9690" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <h3><b>Subscribe to the AYO concert newsletter</b></h3>
+    <div class="mc-field-group">
+    <label for="mce-EMAIL">Email Address:
+    </label>
+    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+    </div>
+    <div class="mc-field-group">
+    <label for="mce-FNAME">First Name: </label>
+    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+    </div>
+    <div class="mc-field-group">
+    <label for="mce-LNAME">Last Name: </label>
+    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+    </div>
+    <div id="mce-responses" class="clear">
+    <div class="response" id="mce-error-response" style="display:none"></div>
+    <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </form>
+    </div>
+    <!--End mc_embed_signup-->
+  </div>
+
+</div>
+</div>
+
 <div class="section clearfix programmesection">
   <h2>Programme</h2>
-  <div class="pullquote">This programme is an eclectic mix of shorter pieces,
+  <div class="pullquote">An eclectic mix of shorter pieces,
   spanning five centuries of musical history, designed to highlight AYO's
   talented instrumental sections. With particular reference to Gallipoli, the
-  evening includes poems by Walt Whitman and Mike Subritzky, as well as a work
-  by AYO's own chariman, Alexander Cowdell.</div>
-  <ul class="programme">
-    <li class="reveal">
+  evening includes poems by Walt Whitman and Leon Gellert.</div>
+  <ul class="programme expanderdown">
+    <li class="">
       <div class="head"><span class="composer">Farr</span> Little Sea Gongs</div>
-      <div class="detailscontainer" style="height:100%;"><div class="details">
+      <div class="detailscontainer"><div class="details">
         With the ‘Rite of Spring’ Stravinsky opened up new and exciting rhythmic
         possibilities to 20th century composers, and together with the dissolution
         of traditional harmony and key relationships there grew an awareness of
@@ -234,6 +271,8 @@
   <h2>Orchestra</h2>
   <div class="fourcolumn">
     <ul>
+      <li class="instrument">Music Director</li>
+      <li>Antun Poljanich</li>
       <li class="instrument">First Violin</li>
       <li>Harris Leung</li>
       <li>Gwyneth Nelmes</li>
@@ -284,7 +323,7 @@
       <li class="instrument">Clarinet</li>
       <li>James Daniell</li>
       <li>Joshua White</li>
-      <li class="instrument">Basson</li>
+      <li class="instrument">Bassoon</li>
       <li>Mikhael Sayat</li>
       <li>Charlotte Naden</li>
     </ul>
@@ -310,7 +349,7 @@
     </ul>
   </div>
   <div class="popup orchpopup">
-    <span class="orchpopupclose">Close</span>
+    <span class="orchpopupclose popupclose">Close</span>
     <h2 class="orchpopupname"></h2>
     <img class="orchpopupimg" />
     <p class="orchpopuptext"></p>
@@ -320,73 +359,128 @@
 <div class="vlbluebg">
 <div class="section aboutus clearfix">
   <h2>About AYO</h2>
-  <p><b>Patron</b> - Dame Catherine Tizard ONZ GCMG GCVO DBE QSO DStJ <br />
+  <div class="rightphoto showGallery">
+    <img class="photo" src="galleryphotos/IMG_3343.JPG" alt="AYO in concert" />
+      <p class="cap">Media Gallery</p>
+  </div>
+
+  <p><b>Patron</b> - Dame Catherine Tizard<br />
   <b>President</b> - Michael McLellan<br />
   <b>Music Director</b> - Antun Poljanich
   </p>
-  <div style="float:right;margin:0 5px 0 15px;" class="showGallery">
-    <img src="galleryphotos/aboutusphoto.jpg" alt="AYO in concert" />
-      <p style="margin:0;">AYO plays in the Auckland Town Hall July 2013.<br/ >Click here to see more photos of AYO.</p>
-  </div>
 
-  <b>At a glance</b>
-  <p>AYO presents three programmes every year. For players, this involves weekly rehearsals for around two months, followed by a weekend concert tour and final performance at the Auckland Town Hall. The orchestra embarks on national and international tours approximately every three years.</p>
-  <b>First, foremost and most comprehensive</b>
-  <p>AYO is the premier regional youth orchestra in New Zealand. Founded in 1948, AYO was the first youth orchestra established in Australasia, designed to bridge the gap between school orchestras and adult professional groups. Since then, more than 2,500 young adults from diverse cultural and social backgrounds have passed through the ranks of the orchestra, having received expert training in orchestral playing. No other orchestral organisation or institution in New Zealand provides such a comprehensive programme to musicians between the ages of 15 and 28. </p>
-  <b>Evolving role</b>
-  <p>The orchestra's training role is paramount, however it has developed an extended role as a performing and touring symphony orchestra. The orchestra regularly presents concerts in centres throughout New Zealand and has made three extensive tours in Australia, New Caledonia and two to North America.  In August 2011, AYO travelled to Europe, being the first ensemble from New Zealand invited to perform at the renowned Young Euro Classic Festival in Berlin, Germany. In 2013, the orchestra toured the length of the South Island with concerts in Dunedin, Gore, Te Anau, Wanaka, Westport and Nelson.</p>
-  <b>Supporting local talent</b>
-  <p>The orchestra also showcases young composers and soloists.  The AYO Composer in Residence project has been running for 5 years, featuring young New Zealand composers such as Claire Cowan, Alex Taylor and Jonathan Mandeno.  The orchestra has always been supportive of young local performers, accompanying Dame Kiri Te Kanawa in her youth, and more recently John Chen, Amitai Pati (Lexus Song Quest winner, 2012), Amalia Hall, Jason Bae, Eugene Lee, Simone Roggen and Thomas Hutchinson.</p>
-  <div style="float:left;margin:0 15px 5px 0;width:200px" class="showHistory">
-    <img src="historyphotos/destiny.jpg" alt="AYO in concert" />
-      <p style="margin:0;">AYO's final concert for 2014. Click here to see more past programmes of AYO.</p>
-  </div>
-  <p>The AYO Concerto Competition entrenches this tradition and offers existing orchestra members the chance to compete for a concerto appearance with the orchestra. Experience with different genres allows the orchestra to engage with a broader audience base. Recent collaborations include concerts with Tim Beveridge, NZ graffiti artist Askew and backing the NZ Variety Show.</p>
-  <b>Engaging communities</b>
-  <p>Our vision is to inspire young people to excellence through their love of musical performance and to provide them with a wide range of cultural experiences; thus shaping our leaders of tomorrow.  We perform more than 15 excellent but affordable and accessible concerts annually across the greater Auckland metropolitan area, nationally and abroad; attracting audiences with diverse cultural and socio-economic backgrounds and of all ages. </p>
-  <b>Here plays the future</b>
-  <p>Not only are we training future musicians to feed into our national ensembles and orchestras but we also play an important audience development role as our members are likely to be future audiences and supporters of the arts.  AYO is a healthy social experience for young people and makes an important contribution to the cultural life of Auckland and New Zealand.</p>
+  <p>The Auckland Youth Orchestra is the premier regional youth orchestra in New Zealand. Our vision is to inspire young people to excellence through their love of musical performance and to provide them with a wide range of cultural experiences; thus shaping our leaders of tomorrow.</p>
+  <p>Founded in 1948, AYO was the first youth orchestra established in the Southern Hemisphere, designed to bridge the gap between school orchestras and adult professional groups. Since then, more than 2,600 young adults from diverse cultural and social backgrounds have passed through the ranks of the orchestra, having received expert training in orchestral playing. No other orchestral organisation or institution in New Zealand provides such a comprehensive programme to musicians up to the age of 28. </p>
 
+  <ul class="expanderdown aboutexpander">
+    <li>
+      <div class="head">Evolving role</div>
+      <div class="detailscontainer"><div class="details">
+        <p>The orchestra's training role is paramount, however it has developed an extended role as a performing and touring symphony orchestra. The orchestra regularly presents concerts in centres throughout New Zealand and has toured to Australia, New Caledonia, North America, and Europe.  In August 2011, AYO travelled to Europe, being the first ensemble from New Zealand invited to perform at the renowned Young Euro Classic Festival in Berlin, Germany. In 2013, the orchestra toured the length of the South Island with concerts in Dunedin, Gore, Te Anau, Wanaka, Westport and Nelson.</p>
+      </div></div>
+    </li>
+    <li>
+      <div class="head">Supporting local talent</div>
+      <div class="detailscontainer"><div class="details">
+        <p>The orchestra also showcases young soloists and composers. The AYO Concerto Competition offers existing orchestra members the chance to compete for a concerto appearance with the orchestra.  The orchestra accompanied Dame Kiri Te Kanawa in her youth, and more recently John Chen and Amitai Pati (Sol3Mio and Lexus Song Quest winner, 2012).</p>
+      </div></div>
+    </li>
+    <li>
+      <div class="head">Engaging communities</div>
+      <div class="detailscontainer"><div class="details">
+        <p>We perform twelve excellent but affordable and accessible concerts annually across the greater Auckland metropolitan area, nationally and abroad; attracting audiences with diverse cultural and socio-economic backgrounds and of all ages. </p>
+      </div></div>
+    </li>
+    <li>
+      <div class="head">Here plays the future</div>
+      <div class="detailscontainer"><div class="details">
+        <p>Not only are we training future musicians to feed into our national ensembles and orchestras but we also play an important audience development role as our members are likely to be future audiences and supporters of the arts.  AYO is a healthy social experience for young people and makes an important contribution to the cultural life of Auckland and New Zealand.</p>
+      </div></div>
+    </li>
+    <li>
+      <div class="head">Alumni</div>
+      <div class="detailscontainer"><div class="details">
+        <p>Many AYO alumni can be found in leading orchestras and ensembles around the world,
+           teaching in conservatories, or performing as soloists and conductors.
+           The co-operative structure of the orchestra provides members with organisational
+          and team building skills; engendering dedication, confidence and self-esteem within
+          a positive peer environment. In today's world, this healthy social experience equips
+          our players with skills and a sense of achievement that will support them in whatever
+          career path they choose. Indeed, many of our alumni are also found in business, politics
+           and other professions.</p>
+
+        <p>To register as a member of AYO Alumni, email: <a href="mailto:ayo@ayo.org.nz?Subject=Register">ayo@ayo.org.nz</a> </p>
+      </div></div>
+    </li>
+  </ul>
   <div class="popup gallerypopup">
     <div id="photoBox" class="clearfix"></div>
   </div>
 
-  <div class="popup historypopup">
-    <div id="historyBox" class="clearfix"></div>
-  </div>
-
 
 
 </div>
 </div>
 
+<div class="section futureconcerts clearfix">
+<h2>Future Concerts</h2>
+<div class="coloumntwo">
+  <h3>New World</h3>
+  <p>
+    <b>Copland </b>Fanfare for the Common Man<br />
+    <b>Shostakovich </b>Cello Concerto No. 1 in E-flat major, Op. 107<br />
+    <b>Borodin </b>Polovtsian Dances<br />
+    <b>Dvo&#345;&aacute;k </b>Symphony No. 9 in E minor,  Op. 95, 'New World'<br />
+  </p>
+  <p>
+    <b>Jacky Siu</b> cello soloist<br />
+    <b>Antun Poljanich</b> conductor
+  </p>
+  <ul class="ticketList">
+    <li><b>Saturday 9 May</b> &bull; All Saint's Church, Howick</li>
+    <li><b>Saturday 16 May</b> &bull; Forum North, Whangarei</li>
+    <li><b>Sunday 17 May</b> &bull; Whangaparaoa College Auditorium</li>
+    <li><b>Saturday 23 May</b> &bull; Auckland Town Hall - <b>FREE ENTRY!</b></li>
+  </ul>
+</div>
+<div class="coloumntwo">
+  <h3>Path&eacute;tique</h3>
+  <p>
+    <b>Kabalevsky</b> The Comedians, Op. 26</br>
+    <b>Mendelssohn </b>Piano Concerto No.1, Op.25<br/>
+    <b>Tchaikovsky </b>Symphony No. 6 in B minor, Op. 74, 'Path&eacute;tique'<br/>
+  </p>
+  <p>
+    <b>Maria Mo</b> piano soloist<br />
+    <b>Antun Poljanich</b> conductor
+  </p>
+  <ul class="ticketList">
+    <li><b>Sunday 20 September</b> &bull; Massey High School</li>
+    <li><b>Saturday 26 September</b> &bull; Great Lake Centre, Taupo</li>
+    <li><b>Sunday 27 September</b> &bull; Baycourt Theatre, Tauranga</li>
+    <li><b>Saturday 3 October</b> &bull; Auckland Town Hall - <b>FREE ENTRY!</b></li>
+  </ul>
+</div>
 
-<div class="section alumni">
-  <h2>Alumni</h2>
-  <b>Legacy of Excellence</b>
-
-  <p>Many AYO alumni can be found in leading orchestras and ensembles both nationally
-    and internationally, teaching in conservatories, or performing as soloists and conductors.
-    Notable alumni include Stephen de Pledge (international soloist and Senior Lecturer,
-    University of Auckland), Virginia Hopkins (Principal Cello Emeritus — APO),
-    Jonathan Baker (Principal Tuba, APO), Gordon Skinner
-    (Principal Bassoon — NZSO & Sydney Symphony, Sydney Conservatory) and
-    Wilma Smith (Concertmaster — NZSO & Melbourne Symphony).</p>
-
-  <p>The co-operative structure of the orchestra provides members with organisational
-    and team building skills; engendering dedication, confidence and self-esteem within
-    a positive peer environment. In today's world, this healthy social experience equips
-    our players with skills and a sense of achievement that will support them in whatever
-    career path they choose. Indeed, many of our alumni are also found in business, politics
-     and other professions, including Adam Ross, Max Cryer, Adrien de Croy, the Honourable
-     Judge Heather Simpson and Jeanette Fitzsimons CNZM.</p>
-
-  <p>To register as a member of AYO Alumni, email: <a href="mailto:ayo@ayo.org.nz?Subject=Register">ayo@ayo.org.nz</a> </p>
 </div>
 
 <div class="vlbluebg">
-<div class="section join">
+<div class="section join clearfix">
   <h2>Join AYO</h2>
+
+  <div class="showHistory rightphoto">
+    <img class="photo" src="historyphotos/destiny.jpg" alt="AYO in concert" />
+    <p class="cap">Poster Gallery</p>
+  </div>
+
+  <div class="gallery historygallery">
+    <div class="galtitle">Poster Gallery</div>
+    <div class="imgcontainer"></div>
+    <span class="prev">Prev</span>
+    <span class="next">Next</span>
+  </div>
+
+
   <p><b>Here plays the future</b></p>
   <p>We are always keen to hear from talented musicians between the ages of 15 and 28 to join the orchestra. There is a place for everyone in AYO - whether you are a polished performer, someone who wants to keep up their playing skills or get back into music after a break. Auditions for us are a formality to make sure everyone has an equal footing when it comes to part allocation and seating order.</p>
   <p>The first step to join AYO is to register for an audition. Contact us now at
@@ -398,10 +492,24 @@
   <p><b>We look forward to hearing from you!</b></p>
   <p>Download our audition brochure: <a href="http://bit.ly/1028cUx">http://bit.ly/1028cUx</a></p>
 
+  <div class="popup historypopup">
+    <div id="historyBox" class="clearfix"></div>
+  </div>
+
 </div>
 </div>
 
-<div style="height:200px;"></div>
+<div class="lightbluebg footer"><div class="section">
+  <span style="float:right">Our sponsers</span>
+  &copy; 2015 Auckland Youth Orchestra
+  <ul class="clearfix">
+    <li><b>AYO</b> Midsummer Dreams</li>
+    <li>Join</li>
+    <li>About AYO</li>
+    <li>Orchestra</li>
+    <li>Programme</li>
+  </ul>
+</div></div>
 
 
 

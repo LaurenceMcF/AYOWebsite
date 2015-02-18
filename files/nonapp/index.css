@@ -40,6 +40,12 @@ h2{
   font-size:2.5em;
 }
 
+h3{
+  color:#0A3E7B;
+  font-weight:normal;
+  font-size:1.5em;
+}
+
 #hero{
   background:#0A3E7B;
   background:radial-gradient(circle at 50% 100%, #4A7EEB, #0A3E7B);
@@ -56,12 +62,18 @@ h2{
   right:50%;
   width:138px;
   -webkit-animation: logoleft 1s;
+  animation: logoleft 1s;
   top:20px;
 }
 
 @-webkit-keyframes logoleft {
-  from { transform: translate(69px); }
-  to { transform: translate(0px); }
+  from { -webkit-transform: translate(69px); }
+  to { -webkit-transform: translate(0px); }
+}
+
+@keyframes logoleft {
+  from { -webkit-transform: translate(69px); }
+  to { -webkit-transform: translate(0px); }
 }
 
 
@@ -74,12 +86,18 @@ h2{
   left:50%;
   top:20px;
   -webkit-animation: logoright 1s;
+  animation: logoright 1s;
 }
 
 @-webkit-keyframes logoright {
+  from { -webkit-transform: translate(-69px); opacity:0; }
+  to { -webkit-transform: translate(0px); opacity:1; }
+}
+@keyframes logoright {
   from { transform: translate(-69px); opacity:0; }
   to { transform: translate(0px); opacity:1; }
 }
+
 
 
 #hero .midsumtext{
@@ -90,10 +108,16 @@ h2{
   padding:0;
   width:100%;
   -webkit-animation: midsumtext 2s;
+  animation: midsumtext 2s;
   bottom:50%;
 }
 
 @-webkit-keyframes midsumtext {
+  0% { bottom:0; opacity:0;}
+  50% { bottom:0; opacity:0;}
+  100% { bottom: 50%; opacity:1;}
+}
+@keyframes midsumtext {
   0% { bottom:0; opacity:0;}
   50% { bottom:0; opacity:0;}
   100% { bottom: 50%; opacity:1;}
@@ -109,6 +133,7 @@ h2{
   left:50%;
   margin-left:-1000px;
   -webkit-animation: spin 90s linear infinite;
+  animation: spin 90s linear infinite;
 }
 
 #hero .cloud{
@@ -120,30 +145,47 @@ h2{
   margin-bottom:-200px;
   position:absolute;
   -webkit-animation: rot 5s linear infinite;
+  animation: rot 5s linear infinite;
 }
 
 #hero #cloud1{
   left:25%;
   bottom:20px;
   -webkit-animation-duration: 6s;
+  animation-duration: 6s;
 }
 #hero #cloud2{
   left:40%;
   bottom:70px;
   -webkit-animation-duration: 12s;
+  animation-duration: 12s;
 }
 #hero #cloud3{
   left:60%;
   bottom:30px;
   -webkit-animation-duration: 8s;
+  animation-duration: 8s;
 }
 #hero #cloud4{
   left:75%;
   bottom:50px;
   -webkit-animation-duration: 10s;
+  animation-duration: 10s;
 }
 
 @-webkit-keyframes rot {
+  from {
+    -webkit-transform: rotate(0deg)
+               translate(-10px)
+               rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg)
+               translate(-10px)
+               rotate(-360deg);
+  }
+}
+@keyframes rot {
   from {
     transform: rotate(0deg)
                translate(-10px)
@@ -156,7 +198,12 @@ h2{
   }
 }
 
+
 @-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -207,6 +254,9 @@ h2{
 
 @media all and (max-width: 700px) {
 
+  #hero .midsumtext{
+    font-size:3.5em;
+  }
   .concerts ul li{
     float:none;
     width:auto;
@@ -223,7 +273,7 @@ h2{
   }
 }
 
-@media all and (max-height:700px){
+/*@media all and (max-height:700px){
   #hero .midsumtext{
     font-size:3.5em;
   }
@@ -232,7 +282,7 @@ h2{
     font-size:1em;
   }
 
-}
+}*/
 
 
 
@@ -297,7 +347,12 @@ h2{
 .section{
   max-width:900px;
   margin:0 auto;
-  padding:10px 10px;
+  padding:10px 10px 20px 10px;
+  line-height:120%;
+}
+
+.sectionnopadbottom{
+  padding-bottom:10px;
 }
 
 .lightbluebg{
@@ -306,23 +361,41 @@ h2{
 }
 
 .vlbluebg{
-  background:#F9FAFF;
+  background:#F0F5FF;
 }
 
 ul{
   margin:0;
 }
 
+.likeoremail .mailpopup{
+  overflow:auto;
+  padding:10px 20px;
+}
+
+ a{
+  color:#4A7EEB;
+  text-decoration:none;
+}
+
+ a:hover{
+  text-decoration:underline;
+}
+
 .pullquote{
   width:300px;
   float:right;
-  font-size:1.5em;
+  font-size:1.3em;
   display:block;
+  line-height:120%;
+}
+
+.expanderdown{
+  list-style-type:none;
+  padding:0;
 }
 
 .programme{
-  list-style-type:none;
-  padding:0;
   margin-right:350px;
 }
 
@@ -337,32 +410,40 @@ ul{
   }
 }
 
-.programme li .detailscontainer{
+.expanderdown li .detailscontainer{
   height:0;
   overflow:hidden;
   transition:all .2s;
 }
 
-.programme li {
+.expanderdown li {
   border-bottom:1px solid #0A3E7B;
 }
 
-.programme li .head{
+.expanderdown li .head{
   cursor:pointer;
   font-size:1.3em;
   padding:10px 0 10px 0;
 }
 
-.programme li.revael .head{
+.expanderdown li .head:hover{
+  color:#4A7EEB;
+}
+
+.expanderdown li.revael .head{
   color:#0A3E7B;
 }
 
-.programme .head .composer{
+.expanderdown .head .composer{
   font-weight:bold;
 }
 
-.programme li .details{
+.expanderdown li .details{
   padding-bottom:10px;
+}
+
+.expanderdown p{
+  margin:0 10px 0 0;
 }
 
 .orchestra .fourcolumn{
@@ -379,19 +460,15 @@ ul{
   margin-bottom:5px;
 }
 
-.orchestra ul li:hover{
+.orchestra ul li.hasdetails:hover{
   cursor:pointer;
-  text-decoration:underline;
+  color:#4A7EEB;
 }
 
 .orchestra ul li.instrument{
   font-weight:bold;
   margin:20px 0 10px 0;
-}
-
-.orchestra ul li.instrument:hover{
-  cursor:default;
-  text-decoration:none;
+  color:#000;
 }
 
 .orchestra .orchpopup{
@@ -399,14 +476,14 @@ ul{
   padding:10px 20px;
 }
 
-.orchestra .orchpopup .orchpopupclose{
+.popupclose{
   float:right;
   color:#ccc;
   cursor:pointer;
   margin:10px 0 20px 0;
 }
 
-.orchestra .orchpopup .orchpopupclose:hover{
+.popupclose:hover{
   text-decoration:underline;
 }
 
@@ -416,19 +493,152 @@ ul{
 
 .orchestra .orchpopup .orchpopupimg{
   float:left;
-  background:#000;
   margin:0 10px 10px 0;
   max-width:350px;
   max-height:350px;
 }
 
-.aboutus .gallerypopup, .aboutus .historypopup{
+.rightphoto{
+  float:right;
+  margin:0 5px 0 15px;
+  width:300px;
+
+}
+
+.rightphoto .photo{
+  width:300px;
+}
+
+.rightphoto:hover .photo{
+  opacity:0.6;
+}
+
+.rightphoto .cap{
+  margin:0;
+  text-align:center;
+}
+
+.aboutus .gallerypopup, .historypopup{
   width:900px;
   height:504px;
   padding-top:2px;
   background-color:#000;
 }
 
-.aboutus .showGallery, .aboutus .showHistory{
+.aboutus .showGallery,  .showHistory{
   cursor:pointer;
+}
+
+.aboutexpander{
+  margin-right:350px;
+}
+
+.futureconcerts .coloumntwo{
+  width:49%;
+  padding-right:1%;
+  float:left;
+}
+
+.futureconcerts .ticketList{
+  list-style-type:none;
+  padding:0;
+}
+
+.futureconcerts .ticketList li {
+  border-bottom:1px solid #0A3E7B;
+  margin-top:5px;
+}
+
+.footer{
+  min-height:100px;
+}
+
+.footer ul{
+  list-style-type:none;
+  padding:0;
+}
+
+.footer li{
+  float:right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*.rightphoto{
+  float:right;
+  margin:0 5px 0 15px;
+  width:300px;
+
+}
+
+.rightphoto .photo{
+  width:300px;
+}
+
+.rightphoto:hover .photo{
+  opacity:0.6;
+}
+
+.rightphoto .cap{
+  margin:0;
+  text-align:center;
+}*/
+
+
+
+
+.historygallery{
+  background:#ccc;
+  width:300px;
+  float:right;
+  margin:0 5px 0 15px;
+}
+
+.gallery{
+  position:relative;
+}
+
+.gallery .imgcontainer{
+  position:relative;
+  min-height:450px;
+}
+
+.gallery .galtitle{
+  display:block;
+  text-align:center;
+  width:100%;
+  position:relative;
+  top:0;
+}
+
+.gallery .next, .gallery .prev{
+  display:block;
+  position:absolute;
+  top:0;
+}
+
+.gallery .prev{
+  left:0;
+}
+
+.gallery .next{
+  right:0;
+}
+
+.gallery img{
+  width:100%;
+  max-height:100%;
+  top:0;
+  position:absolute;
+  opacity:0;
+  transition:opacity .3s;
 }
