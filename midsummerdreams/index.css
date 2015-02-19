@@ -400,13 +400,22 @@ ul{
 }
 
 
- a{
+a{
   color:#4A7EEB;
   text-decoration:none;
 }
 
- a:hover{
+a:hover{
   text-decoration:underline;
+}
+
+.lightbluebg a{
+  color:#fff;
+  text-decoration:underline;
+}
+
+.lightbluebg a:hover{
+  text-decoration:none;
 }
 
 .pullquote{
