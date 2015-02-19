@@ -93,21 +93,29 @@ h3{
   overflow:hidden;
 }
 
-#hero .logo{
-  font-size:4em;
-  display:inline-block;
+#hero .logocontainer{
+  width:235px;
+  height:50px;
   position:absolute;
-  font-weight:bold;
-  right:50%;
+  left:0;
+  right:0;
+  top:20px;
+  margin:0 auto;
+}
+
+#hero .logo{
+  display:inline-block;
+  position:relative;
   width:138px;
+  height:50px;
   -webkit-animation: logoleft 1s;
   animation: logoleft 1s;
-  top:20px;
+  background: url(ayologopath.png) 0 0;
 }
 
 @-webkit-keyframes logoleft {
-  from { -webkit-transform: translate(69px); }
-  to { -webkit-transform: translate(0px); }
+  from { -webkit-transform: translate(68px); }
+  to { -webkit-transform: translate(0); }
 }
 
 @keyframes logoleft {
@@ -118,14 +126,12 @@ h3{
 
 #hero .smalllogotext{
   display:inline-block;
-  position:absolute;
-  font-size:1.05em;
-  margin-top:1px;
-  margin-left:10px;
-  left:50%;
-  top:20px;
+  position:relative;
+  width:92px;
+  height:50px;
   -webkit-animation: logoright 1s;
   animation: logoright 1s;
+  background: url(ayologopath.png) -138px 0;
 }
 
 @-webkit-keyframes logoright {
