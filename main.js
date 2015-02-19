@@ -1,7 +1,9 @@
 var express = require('express')
 var app = express()
 
-app.use(express.static('files'));
+console.log(process.argv[2]);
+
+app.use(express.static(process.argv[2]));
 
 var server = app.listen(8000, function () {
 
