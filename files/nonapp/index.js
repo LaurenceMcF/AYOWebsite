@@ -75,6 +75,7 @@ $(function(){
       popup.children(".orchpopupname").html(name);
       popup.children(".popupclose").click(close);
       popup.children(".orchpopuptext").html(people[name]['text']);
+      popup.children(".orchpopupimg").attr("src", "");
       popup.children(".orchpopupimg").attr("src", people[name]['image']);
       popup.show();
       $('body').css('overflow', 'hidden');
