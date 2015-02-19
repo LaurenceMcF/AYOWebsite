@@ -30,13 +30,14 @@ $(function(){
     var close = function(){
       $(".popupBacking").hide();
       $(".mailpopup").hide();
+      $('body').css('overflow', 'auto');
     };
     $(".popupBacking").show().click(close);
     var popup = $(".mailpopup");
     var name = $(this).html();
-    popup.css("left", ($(window).width() - popup.width())/2)
-    popup.children(".close").click(close);
+    popup.children(".popupclose").click(close);
     popup.show();
+    $('body').css('overflow', 'hidden');
 
   });
 
@@ -66,16 +67,17 @@ $(function(){
       var close = function(){
         $(".popupBacking").hide();
         $(".orchpopup").hide();
+        $('body').css('overflow', 'auto');
       };
       $(".popupBacking").show().click(close);
       var popup = $(".orchpopup");
       var name = $(this).html();
-      popup.css("left", ($(window).width() - popup.width())/2)
       popup.children(".orchpopupname").html(name);
-      popup.children(".orchpopupclose").click(close);
+      popup.children(".popupclose").click(close);
       popup.children(".orchpopuptext").html(people[name]['text']);
       popup.children(".orchpopupimg").attr("src", people[name]['image']);
       popup.show();
+      $('body').css('overflow', 'hidden');
     }
   })
   $(".orchestra ul li").each(function(){
@@ -116,9 +118,12 @@ $(function(){
     var close = function(){
         $(".popupBacking").hide();
         $(".gallerypopup").hide();
+        $('body').css('overflow', 'auto');
       };
       $(".popupBacking").show().click(close);
     $(".gallerypopup").show();
+    $(".gallerypopup .closepopup").click(close);
+    $('body').css('overflow', 'hidden');
   });
 
   //History
