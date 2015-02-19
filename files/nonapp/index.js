@@ -107,6 +107,32 @@ $(function(){
     }
   })
 
+  //Gallery creation function
+  function creategallery($el, data){
+    var images = [];
+    var current = 0;
+    var width = $el.children(".imgcontainer").width();
+    var height = $el.children(".imgcontainer").height();
+    for(var i = 0; i < data.length; i++){
+      images[i] = $("<img>").attr("src", data[i].image).css("opacity", 0);
+      $el.children(".imgcontainer").append(images[i]);
+    }
+    images[current].css("opacity", 1);
+    $el.children(".prev, .next").click(function(){
+      if($(this).hasClass("prev")){
+        current = current == 0 ? images.length - 1 : current - 1;
+      }else{
+        current = (current + 1) % images.length;
+      }
+      images[current].css("opacity", 1);
+      for(var i = 0; i < images.length; i++){
+        if(i != current){
+          images[i].css("opacity", 0);
+        }
+      }
+    });
+  }
+
   //Gallery
   var gallery = [
       {
@@ -283,11 +309,179 @@ $(function(){
 
 
   ];
-  $('#photoBox').galleria({
-      data_source: gallery,
-      width:900,
-      height:500
-  });
+  var galleryNoVid = [
+    {
+          image: 'galleryphotos/23.JPG',
+          title: 'Woodwind and Brasswind',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/28.JPG',
+          title: 'Pizzicato cellos',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/37.JPG',
+          title: 'Violas',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/42.JPG',
+          title: 'Three Trumpeteers',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/50.JPG',
+          title: 'Three Trumpeteers',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/54.JPG',
+          title: 'In Rehearsal',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/59.JPG',
+          title: 'Percussionists at work',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/61.JPG',
+          title: 'Happy basses!',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/72.JPG',
+          title: 'Cameron "Fastidious" Stuart',
+          description: 'Auckland Town Hall',
+      },
+    {
+          image: 'galleryphotos/92.JPG',
+          title: 'Rehearsal precision',
+          description: 'Auckland Town Hall',
+      },
+      {
+          image: 'galleryphotos/IMG_2963.JPG',
+          title: 'In Rehearsal',
+          description: 'Dunedin Town Hall',
+      },
+      {
+          image: 'galleryphotos/IMG_2976.JPG',
+          title: 'In Concert',
+          description: 'Dunedin Town Hall',
+      },
+      {
+          image: 'galleryphotos/IMG_2986.JPG',
+          title: 'First Violins',
+          description: 'Gore',
+      },
+      {
+          image: 'galleryphotos/IMG_3022.JPG',
+          title: 'Czardas played by Laurence McFarlane',
+          description: 'Te Anau',
+      },
+      {
+          image: 'galleryphotos/IMG_3032.JPG',
+          title: 'Enthusiastic Fans getting close up after the concert',
+          description: 'Te Anau',
+      },
+      {
+          image: 'galleryphotos/IMG_3044.JPG',
+          title: 'Cooking dinner for the orchestra on tour',
+          description: 'Te Anau Youth Hostel',
+          },
+      {
+          image: 'galleryphotos/IMG_3051.JPG',
+          title: 'Dinner and Games',
+          description: 'Te Anau Youth Hostel',
+          },
+
+      {
+          image: 'galleryphotos/IMG_3152.JPG',
+          title: 'Bungy Jumping undertaken by many!',
+          description: 'Queenstown',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3185.JPG',
+          title: 'Robbie, Principal Cello, demonstrating',
+          description: 'Wanaka',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3187.JPG',
+          title: 'In Rehearsal',
+          description: 'Wanaka',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3188.JPG',
+          title: 'Almost full house',
+          description: 'Wanaka',
+          },
+      {
+          image: 'galleryphotos/IMG_3221.JPG',
+          title: 'Nick, Jono, and Robbie',
+          description: 'Gates of Haast',
+      },
+      {
+          image: 'galleryphotos/IMG_3223.JPG',
+          title: 'Carol and Jess',
+          description: 'Gates of Haast',
+      },
+      {
+          image: 'galleryphotos/IMG_3240.JPG',
+          title: 'Made it to Fox Glacier',
+          description: 'Fox Glacier',
+      },
+      {
+          image: 'galleryphotos/IMG_3260.JPG',
+          title: 'Cooking dinner',
+          description: 'Noahs Arc Hostel, Greymouth',
+      },
+      {
+          image: 'galleryphotos/IMG_3300.JPG',
+          title: 'Beautiful basses',
+          description: 'Westport',
+      },
+      {
+          image: 'galleryphotos/IMG_3303.JPG',
+          title: 'Photogenic Horns',
+          description: 'Westport',
+          },
+      {
+          image: 'galleryphotos/IMG_3304.JPG',
+          title: 'Woodwinds, deep in concentration',
+          description: 'Westport',
+          },
+
+      {
+          image: 'galleryphotos/IMG_3329.JPG',
+          title: 'In Concert',
+          description: 'Nelson School of Music',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3331.JPG',
+          title: 'Czardas',
+          description: 'Nelson School of Music',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3343.JPG',
+          title: 'Back home, In Rehearsal',
+          description: 'Auckland Town Hall',
+          },
+
+          {
+          image: 'galleryphotos/IMG_3353.JPG',
+          title: 'In Concert',
+          description: 'Auckland Town Hall',
+          },
+
+
+  ];
+  creategallery($(".gallerypopup .gallery"), galleryNoVid);
   $(".showGallery").click(function(e){
     var close = function(){
         $(".popupBacking").hide();
@@ -320,43 +514,6 @@ $(function(){
     {image:"historyphotos/symphonicheroes.jpg",    title:"Symphonic Heroes",    description:"<em>March-April 2008</em><br /><br />    Berlioz Roman Carnival Overture<br />    Aratunian Trumpet Concerto<br />    Beethoven Symphony No. 7<br /><br />    <em>Antun Poljanich, Bill Stoneham<br />    Auckland, Warkworth, Orewa, Thames</em>"},
     {image:"historyphotos/kingdom.jpg",    title:"Kingdom of the Animals",    description:"<em>April 2008</em><br /><br />    Prokofiev Peter and the Wolf <br />    Saint-Saens Carnival of the Animals <br />    Rimsky Korsakov Flight of the Bumble Bee<br />    Tchaikovsky Prelude to Swan Lake <br />    Mussorgsky Chicks in their shells (from Pictures at an Exhibition)<br />    Alex Taylor Noughts and Crosses <br /><br />    <em>Antun Poljanich, Jason Bae, Joong-Han Jung<br />    Warkworth, Auckland</em>"},
   ];
-  $('#historyBox').galleria({
-      data_source: history,
-      width:900,
-      height:500
-  });
-  $(".showHistory").click(function(e){
-    var close = function(){
-        $(".popupBacking").hide();
-        $(".historypopup").hide();
-      };
-      $(".popupBacking").show().click(close);
-    $(".historypopup").show();
-  });
-
-
-  //History custom gallery
-  var historygallery = $(".historygallery");
-  var historyimages = [];
-  var historycurrent = 0;
-  for(var i = 0; i < history.length; i++){
-    historyimages[i] = $("<img>").attr("src", history[i].image).css("opacity", 0);
-    historygallery.children(".imgcontainer").append(historyimages[i]);
-  }
-  historyimages[historycurrent].css("opacity", 1);
-  historygallery.children(".prev, .next").click(function(){
-    if($(this).hasClass("prev")){
-      historycurrent = historycurrent == 0 ? historyimages.length - 1 : historycurrent - 1;
-    }else{
-      historycurrent = (historycurrent + 1) % historyimages.length;
-    }
-    historyimages[historycurrent].css("opacity", 1);
-    for(var i = 0; i < historyimages.length; i++){
-      if(i != historycurrent){
-        historyimages[i].css("opacity", 0);
-      }
-    }
-  });
-
+  creategallery($(".historygallery .gallery"), history);
 
 });
