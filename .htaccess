@@ -1,0 +1,20 @@
+Redirect /concerts/ http://ayo.org.nz/
+Redirect /aboutus/ http://ayo.org.nz/
+Redirect /players/ http://ayo.org.nz/
+Redirect /history/ http://ayo.org.nz/
+Redirect /alumni/ http://ayo.org.nz/
+Redirect /gallery/ http://ayo.org.nz/
+Redirect /sponsors/ http://ayo.org.nz/
+Redirect /donate/ http://ayo.org.nz/
+Redirect /joinus/ http://ayo.org.nz/
+Redirect /contact/ http://ayo.org.nz/
+Redirect /scholarships/ http://ayo.org.nz/
+
+AddType image/svg+xml .svg .svgz
+AddEncoding x-gzip .svgz
+
+RewriteEngine On
+RewriteRule ^$ /midsummerdreams/ [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /midsummerdreams/$1 [L]
