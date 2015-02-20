@@ -24,6 +24,10 @@ body{
   float:right;
 }
 
+.push-down{
+  padding-top:30px;
+}
+
 /*
 --------------------------------------------------------------------------------
 Gird properties (with clearfix) and other structural elements
@@ -46,7 +50,7 @@ Gird properties (with clearfix) and other structural elements
   padding:0.3% 1%;
 }
 
-.g-p > p{
+.g-p > p, .g-p > h2{
   padding:0 1%;
 }
 
@@ -118,6 +122,12 @@ body{
   line-height:85%;
 }
 
+h2{
+  font-size:2.5em;
+  font-weight:normal;
+  line-height:95%;
+}
+
 .vbig{
   font-size:3em;
   line-height:85%;
@@ -132,7 +142,7 @@ a:hover{
   text-decoration:underline;
 }
 
-.c-main-dark{
+.c-main-dark, h1, h2, h3, h4, h5, h6{
   color:#A11415;
 }
 
@@ -303,5 +313,77 @@ Hero
 
 /*
 --------------------------------------------------------------------------------
-Stat box
+Icons
 */
+
+.gallery .next, .gallery .prev{
+  width: 30px;
+  height: 60px;
+  background: url(images/icons.svg);
+  cursor:pointer;
+}
+
+.gallery .prev{
+  background-position: 0 0;
+}
+
+.gallery .next{
+  background-position: -35px 0;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+Gallery
+*/
+
+.gallery{
+  max-width:100%;
+  position:relative;
+  height:400px;
+  transition:height 0.1s;
+}
+
+.gallery .gallery-img-container{
+  position:relative;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+
+.gallery .gallery-img-container img{
+  max-width:100%;
+  position:absolute;
+  display:block;
+  margin:0 auto;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.gallery.gallery-full-width .gallery-img-container img{
+  width:100%;
+}
+
+.gallery .gallery-img-container > img:first-child{
+  opacity:1;
+}
+
+.gallery .next, .gallery .prev{
+  display:block;
+  position:absolute;
+  top:50%;
+  margin-top:-30px;
+  z-index:2;
+}
+
+.gallery .prev{
+  left:10px;
+}
+
+.gallery .next{
+  right:10px;
+}
