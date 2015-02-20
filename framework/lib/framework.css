@@ -202,7 +202,7 @@ a:hover{
   transition:color 0.1s;
 }
 
-.white-transparent-hover:hover{
+.white-transparent-hover:hover, .white-transparent-hover-sel{
   color:rgba(255,255,255,1);
 }
 
@@ -313,24 +313,82 @@ Hero
 
 /*
 --------------------------------------------------------------------------------
+Hero popup
+*/
+
+.hero-popup{
+  width:900px;
+  height:300px;
+  background:rgba(255,255,255,0.7);
+  position:absolute;
+  left:0;
+  right:0;
+  margin:0 auto;
+  top:90px;
+  border-radius:2px;
+  color:#000;
+
+  display:block;
+  opacity:0;
+  transition:all 0.1s;
+}
+
+.hero-popup > div > div > p:first-child{
+  margin-top:0;
+  padding-top:0;
+}
+
+/*
+--------------------------------------------------------------------------------
 Icons
 */
 
-.gallery .next, .gallery .prev{
+.next, .prev{
   width: 30px;
   height: 60px;
   background: url(images/icons.svg);
   cursor:pointer;
 }
 
-.gallery .prev{
+.prev{
   background-position: 0 0;
 }
 
-.gallery .next{
+.next{
   background-position: -35px 0;
 }
 
+.html-arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid rgba(255,255,255,0.7);
+}
+
+.icon-bottom-quarter-1, .icon-bottom-quarter-2, .icon-bottom-quarter-3,
+.icon-bottom-quarter-4{
+  position:absolute;
+  top:325px;
+  margin-left:-5px;
+}
+
+.icon-bottom-quarter-1{
+  left:12.5%;
+}
+
+.icon-bottom-quarter-2{
+  left:37.5%;
+}
+
+.icon-bottom-quarter-3{
+  left:62.5%;
+}
+
+.icon-bottom-quarter-4{
+  left:87.5%;
+}
 
 /*
 --------------------------------------------------------------------------------

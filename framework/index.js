@@ -1,7 +1,7 @@
 $(function(){
 
   //Gallery Creation
-  $( ".gallery" ).each(function(index, el){
+  $(".gallery").each(function(index, el){
     var $el = $(el);
     //Set height when we can
     //$el.css("height",
@@ -26,6 +26,32 @@ $(function(){
       current.removeClass("current").css("opacity", 0);
       $el.css("height", future.height());
     });
+  });
+
+  $("#hero .can-click.do-hero-popup").click(function(){
+    var $el = $(this);
+    var $popup = $("#hero-popup-"+$el.attr("data-hero-popup"));
+
+    if($popup.css("opacity")>0){
+      $popup.css("opacity", 0);
+      setTimeout(function(){
+        $popup.css("display", "none");
+      }, 100);
+      $(this).removeClass("white-transparent-hover-sel");
+    }else{
+      $(".hero-popup").css("opacity", 0).each(function(){
+        if($(this) != $popup){
+          setTimeout(function(){
+            $(this).css("display", "none");
+          }, 100);
+        }
+      });
+      $("#hero .can-click.do-hero-popup").removeClass("white-transparent-hover-sel");
+
+      $popup.css("display", "block");
+      $popup.css("opacity", 1);
+      $el.addClass("white-transparent-hover-sel");
+    }
   });
 
 });
