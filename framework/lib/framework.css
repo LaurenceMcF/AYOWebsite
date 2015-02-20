@@ -1,0 +1,153 @@
+body{
+  margin:0;
+}
+
+.no-list{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+/*
+--------------------------------------------------------------------------------
+Gird properties
+*/
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:1%;
+}
+
+.g-third{
+  float: left;
+  margin-right: 4.5%;
+  width: 28.33%;
+  background:#ccc;
+  padding:0.3% 1%;
+}
+
+.g-twothird{
+  float: left;
+  margin-right: 4.5%;
+  width: 63.1%;
+  background:#ccc;
+  padding:0.3% 1%;
+}
+
+.g-quarter{
+  float: left;
+  margin-right: 4.5%;
+  width: 19.625%;
+  background:#ccc;
+  padding:0.3% 1%;
+}
+
+.g-half{
+  float: left;
+  margin-right: 4.5%;
+  width: 45.75%;
+  background:#ccc;
+  padding:0.3% 1%;
+}
+
+.g-threequarter{
+  float: left;
+  margin-right: 4.5%;
+  width: 71.875%;
+  background:#ccc;
+  padding:0.3% 1%;
+}
+
+.g-last{
+  margin-right: 0;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+Colors, background, links, fonts, list bottom
+*/
+
+body{
+  font-family:"Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  -webkit-font-smoothing: antialiased;
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #333;
+  font-style: normal;
+}
+
+a{
+  color:#08C;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+.c-main-dark{
+  color:#A11415;
+}
+
+.c-main-med{
+  color:#e53031;
+}
+
+.c-main-light{
+  color:#f3a2a3;
+}
+
+.c-main-dark-bg{
+  background-color:#A11415;
+  color:#fff;
+}
+
+.c-main-med-bg{
+  background-color:#e53031;
+  color:#fff;
+}
+
+.c-main-light-bg{
+  background-color:#f3a2a3;
+}
+
+.c-main-dark-bg-transparent{
+  background-color:rgb(161, 20, 20);
+  background-color:rgba(161, 20, 20, 128);
+  color:#fff;
+}
+
+.c-main-dark-bg a, .c-main-med-bg a{
+  color:#000;
+  text-decoration:underline;
+}
+
+.c-main-dark-bg a:hover, .c-main-med-bg a:hover{
+  text-decoration:none;
+}
+
+.c-main-line-list li{
+  border-bottom:1px solid #e53031;
+}
+
+/*
+--------------------------------------------------------------------------------
+Menu
+*/
+
+.menu{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
