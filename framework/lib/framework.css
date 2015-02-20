@@ -24,10 +24,9 @@ body{
   float:right;
 }
 
-
 /*
 --------------------------------------------------------------------------------
-Gird properties (with clearfix)
+Gird properties (with clearfix) and other structural elements
 */
 
 .clearfix:after, .right-list:after{
@@ -42,11 +41,19 @@ Gird properties (with clearfix)
   padding:1%;
 }
 
+.g-full{
+  width:98%;
+  padding:0.3% 1%;
+}
+
+.g-p > p{
+  padding:0 1%;
+}
+
 .g-third{
   float: left;
   margin-right: 4.5%;
   width: 28.33%;
-  background:#ccc;
   padding:0.3% 1%;
 }
 
@@ -54,7 +61,6 @@ Gird properties (with clearfix)
   float: left;
   margin-right: 4.5%;
   width: 63.1%;
-  background:#ccc;
   padding:0.3% 1%;
 }
 
@@ -62,7 +68,6 @@ Gird properties (with clearfix)
   float: left;
   margin-right: 4.5%;
   width: 19.625%;
-  background:#ccc;
   padding:0.3% 1%;
 }
 
@@ -70,7 +75,6 @@ Gird properties (with clearfix)
   float: left;
   margin-right: 4.5%;
   width: 45.75%;
-  background:#ccc;
   padding:0.3% 1%;
 }
 
@@ -78,7 +82,6 @@ Gird properties (with clearfix)
   float: left;
   margin-right: 4.5%;
   width: 71.875%;
-  background:#ccc;
   padding:0.3% 1%;
 }
 
@@ -86,6 +89,15 @@ Gird properties (with clearfix)
   margin-right: 0;
 }
 
+.center{
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+
+.center-text{
+  text-align:center;
+}
 
 /*
 --------------------------------------------------------------------------------
@@ -93,13 +105,22 @@ Colors, background, links, fonts, list bottom
 */
 
 body{
-  font-family:"Myriad Set Pro","Lucida Grande","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-family:"Helvetica","Roboto","Verdana","Arial","sans-serif";
   -webkit-font-smoothing: antialiased;
   font-size: 18px;
   line-height: 1.45;
   font-weight: 400;
-  color: #333;
   font-style: normal;
+}
+
+.big{
+  font-size:2em;
+  line-height:85%;
+}
+
+.vbig{
+  font-size:3em;
+  line-height:85%;
 }
 
 a{
@@ -166,6 +187,15 @@ a:hover{
   border-bottom:1px solid #e53031;
 }
 
+.white-transparent-hover, .white-transparent{
+  color:rgba(255,255,255,0.5);
+  transition:color 0.1s;
+}
+
+.white-transparent-hover:hover{
+  color:rgba(255,255,255,1);
+}
+
 /*
 --------------------------------------------------------------------------------
 Menu
@@ -190,3 +220,88 @@ Menu
   display:inline-block;
   padding:2px 4px;
 }
+
+/*
+--------------------------------------------------------------------------------
+Logo
+*/
+
+.logo-container{
+  width:236px;
+  height:50px;
+  position:relative;
+}
+
+.logo-ayo{
+  display:inline-block;
+  position:relative;
+  width:138px;
+  height:50px;
+  background: url(images/ayologopath.svg) 0 0;
+}
+
+.logo-text{
+  display:inline-block;
+  position:relative;
+  width:92px;
+  height:50px;
+  background: url(images/ayologopath.svg) -138px 0;
+}
+
+.logo-container.animate .logo-ayo{
+  -webkit-animation: moveleft 1s;
+  animation: moveleft 1s;
+}
+
+.logo-container.animate .logo-text{
+  -webkit-animation: moveright 1s;
+  animation: moveright 1s;
+}
+
+@-webkit-keyframes moveleft {
+  from { -webkit-transform: translate(68px); }
+  to { -webkit-transform: translate(0); }
+}
+
+@keyframes moveleft {
+  from { -webkit-transform: translate(69px); }
+  to { -webkit-transform: translate(0px); }
+}
+
+@-webkit-keyframes moveright {
+  from { -webkit-transform: translate(-68px); opacity:0; }
+  to { -webkit-transform: translate(0px); opacity:1; }
+}
+@keyframes moveright {
+  from { transform: translate(-68px); opacity:0; }
+  to { transform: translate(0px); opacity:1; }
+}
+
+/*
+--------------------------------------------------------------------------------
+Hero
+*/
+
+#hero{
+  position:relative;
+  top:0;
+  height:600px;
+  left:0;
+  right:0;
+}
+
+#hero .logo-container{
+  top:20px;
+}
+
+#hero .bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:50px;
+}
+
+/*
+--------------------------------------------------------------------------------
+Stat box
+*/
