@@ -2,18 +2,35 @@ body{
   margin:0;
 }
 
+.relative{
+  position:relative;
+}
+
 .no-list{
   list-style-type:none;
   margin:0;
   padding:0;
 }
 
+.can-click{
+  cursor:pointer;
+}
+
+.can-click-list li{
+  cursor:pointer;
+}
+
+.right-list li{
+  float:right;
+}
+
+
 /*
 --------------------------------------------------------------------------------
-Gird properties
+Gird properties (with clearfix)
 */
 
-.clearfix:after {
+.clearfix:after, .right-list:after{
   content:"";
   display:table;
   clear:both;
@@ -122,7 +139,7 @@ a:hover{
 
 .c-main-dark-bg-transparent{
   background-color:rgb(161, 20, 20);
-  background-color:rgba(161, 20, 20, 128);
+  background-color:rgba(161, 20, 20, 0.5);
   color:#fff;
 }
 
@@ -133,6 +150,16 @@ a:hover{
 
 .c-main-dark-bg a:hover, .c-main-med-bg a:hover{
   text-decoration:none;
+}
+
+.c-main-dark-bg-hover-list li{
+  background-color:rgba(161, 20, 20, 0);
+  transition:all 0.1s;
+  border-radius:2px;
+}
+
+.c-main-dark-bg-hover-list li:hover, .c-main-dark-bg-hover-list li.selected{
+  background-color:rgba(161, 20, 20, 1);
 }
 
 .c-main-line-list li{
@@ -147,7 +174,19 @@ Menu
 .menu{
   position:fixed;
   top:0;
-  bottom:0;
   left:0;
   right:0;
+  height:50px;
+}
+
+.menu .options{
+  position:absolute;
+  right:0;
+  top:50%;
+  margin-top:-12px; /*TODO: fix this*/
+}
+
+.menu .options ul li{
+  display:inline-block;
+  padding:2px 4px;
 }
