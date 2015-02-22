@@ -52,12 +52,6 @@ Gird properties (with clearfix) and other structural elements
 .container{
   max-width:900px;
   margin:0 auto;
-  padding:1%;
-}
-
-.container-center{
-  max-width:900px;
-  margin:0 auto;
 }
 
 .g-full{
@@ -65,47 +59,39 @@ Gird properties (with clearfix) and other structural elements
   padding:0.3% 1%;
 }
 
-.g-p > p, .g-p > h2, .g-p > h1{
+/*.g-p > p, .g-p > h2, .g-p > h1{
   padding:0 1%;
 }
+*/
 
 .g-third{
   float: left;
-  margin-right: 4.5%;
-  width: 28.33%;
+  width: 31.33%;
   padding:0.3% 1%;
 }
 
 .g-twothird{
   float: left;
-  margin-right: 4.5%;
-  width: 63.1%;
+  width: 64.66%;
   padding:0.3% 1%;
 }
 
 .g-quarter{
   float: left;
-  margin-right: 4.5%;
-  width: 19.625%;
+  width: 23%;
   padding:0.3% 1%;
 }
 
 .g-half{
   float: left;
-  margin-right: 4.5%;
-  width: 45.75%;
+  width: 48%;
   padding:0.3% 1%;
 }
 
 .g-threequarter{
   float: left;
-  margin-right: 4.5%;
-  width: 71.875%;
+  width: 73%;
   padding:0.3% 1%;
-}
-
-.g-last{
-  margin-right: 0;
 }
 
 .center{
@@ -501,4 +487,17 @@ Gallery
 
 .gallery .next{
   right:10px;
+}
+
+/*
+--------------------------------------------------------------------------------
+Orchestra List
+*/
+.orchestra-list .instrument{
+  font-weight:bold;
+  margin-top:20px;
+}
+
+.orchestra-list .instrument:first-child{
+  margin-top:0;
 }
