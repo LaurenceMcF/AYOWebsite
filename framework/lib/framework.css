@@ -28,6 +28,16 @@ body{
   padding-top:30px;
 }
 
+.push-down-lots{
+  margin-top:100px;
+}
+
+
+.no-top{
+  margin-top:0;
+  padding-top:0;
+}
+
 /*
 --------------------------------------------------------------------------------
 Gird properties (with clearfix) and other structural elements
@@ -41,6 +51,12 @@ Gird properties (with clearfix) and other structural elements
 
 .container{
   max-width:900px;
+  margin:0 auto;
+  padding:1%;
+}
+
+.container-extra{
+  max-width:800px;
   margin:0 auto;
   padding:1%;
 }
@@ -212,8 +228,8 @@ Logo
 */
 
 .logo-container{
+  /*width:236px;*/
   width:236px;
-  height:50px;
   position:relative;
 }
 
@@ -221,16 +237,22 @@ Logo
   display:inline-block;
   position:relative;
   width:138px;
-  height:50px;
+  width:58.5%;padding-top:21%;
+  /* height:50px; */
   background: url(images/ayologopath.svg) 0 0;
+  background-size:cover;
+  /*background:#ccc;*/
 }
 
 .logo-text{
   display:inline-block;
   position:relative;
-  width:92px;
-  height:50px;
-  background: url(images/ayologopath.svg) -138px 0;
+  /*width:92px;
+  height:50px;*/
+  width:39.5%;padding-top:21%;
+  background: url(images/ayologopath.svg) -68.5% 0;
+  background-size:cover;
+  /*background:#ddd;*/
 }
 
 .logo-container.animate .logo-ayo{

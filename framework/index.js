@@ -5,11 +5,13 @@ $(function(){
   var adjMenuOpacity = function(){
     if ($(window).scrollTop() > height) {
       $('.menu').css("background-color", 'rgba(161, 20, 20, 0.8)');
+      $('.menu .logo-container').css("width", 236);
     } else {
       $('.menu').css("background-color", 'rgba(161, 20, 20, 0)');
       var opacity = $(window).scrollTop() / height * 0.8;
-      console.log(opacity);
+      var logosize = 436 - $(window).scrollTop() / height * 200;
       $('.menu').css("background-color", 'rgba(161, 20, 20, '+opacity+')');
+      $('.menu .logo-container').css("width", logosize);
     }
   }
   $(window).scroll(adjMenuOpacity);
