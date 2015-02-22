@@ -32,6 +32,10 @@ body{
   margin-top:100px;
 }
 
+.push-down-lots-both{
+  margin-top:50px;
+  padding-top:50px;
+}
 
 .no-top{
   margin-top:0;
@@ -56,13 +60,9 @@ Gird properties (with clearfix) and other structural elements
 
 .g-full{
   width:98%;
-  padding:0.3% 1%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
-
-/*.g-p > p, .g-p > h2, .g-p > h1{
-  padding:0 1%;
-}
-*/
 
 .g-third{
   float: left;
