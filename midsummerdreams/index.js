@@ -25,6 +25,13 @@ $(function(){
     }, 100)
   });
 
+  //Donate link
+  $("#likeoremaildonate").click(function() {
+    $("html, body").animate({
+      scrollTop: $(".supporters").offset().top - $(".fixedtop").height()
+    }, 100)
+  });
+
   //Join mail
   $(".joinmail").click(function(e){
     var close = function(){
