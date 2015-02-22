@@ -55,10 +55,9 @@ Gird properties (with clearfix) and other structural elements
   padding:1%;
 }
 
-.container-extra{
-  max-width:800px;
+.container-center{
+  max-width:900px;
   margin:0 auto;
-  padding:1%;
 }
 
 .g-full{
@@ -162,6 +161,10 @@ a:hover{
   color:#A11415;
 }
 
+.c-main-dark-bg h1, .c-main-dark-bg h2{
+  color:#fff;
+}
+
 .c-main-med{
   color:#e53031;
 }
@@ -213,13 +216,16 @@ a:hover{
   border-bottom:1px solid #e53031;
 }
 
-.white-transparent-hover, .white-transparent{
+.white-transparent-hover, .white-transparent, .white-transparent-hover-a a{
   color:rgba(255,255,255,0.5);
   transition:color 0.1s;
+  text-decoration:none;
 }
 
-.white-transparent-hover:hover, .white-transparent-hover-sel{
+.white-transparent-hover:hover, .white-transparent-hover-sel,
+.white-transparent-hover-a a:hover{
   color:rgba(255,255,255,1);
+  text-decoration:none;
 }
 
 /*
@@ -256,8 +262,8 @@ Logo
 }
 
 .logo-container.animate .logo-ayo{
-  -webkit-animation: moveleft 1s;
-  animation: moveleft 1s;
+  /*-webkit-animation: moveleft 1s;
+  animation: moveleft 1s;*/
 }
 
 .logo-container.animate .logo-text{
@@ -325,7 +331,6 @@ Menu
 
 .menu .options ul li a{
   height:100%;
-  color:inherit;
   line-height:40px;
   height:40px;
   display:block;
