@@ -50,7 +50,7 @@ Gird properties (with clearfix) and other structural elements
   padding:0.3% 1%;
 }
 
-.g-p > p, .g-p > h2{
+.g-p > p, .g-p > h2, .g-p > h1{
   padding:0 1%;
 }
 
@@ -165,12 +165,12 @@ a:hover{
 }
 
 .c-main-light-bg{
-  background-color:#f3a2a3;
+  background-color:#fff2f3;
 }
 
 .c-main-dark-bg-transparent{
   background-color:rgb(161, 20, 20);
-  background-color:rgba(161, 20, 20, 0.5);
+  background-color:rgba(161, 20, 20, 0.8);
   color:#fff;
 }
 
@@ -183,13 +183,13 @@ a:hover{
   text-decoration:none;
 }
 
-.c-main-dark-bg-hover-list li{
+.c-main-dark-bg-hover-list li a{
   background-color:rgba(161, 20, 20, 0);
   transition:all 0.1s;
-  border-radius:2px;
+  border-radius:4px;
 }
 
-.c-main-dark-bg-hover-list li:hover, .c-main-dark-bg-hover-list li.selected{
+.c-main-dark-bg-hover-list li a:hover, .c-main-dark-bg-hover-list li a.selected{
   background-color:rgba(161, 20, 20, 1);
 }
 
@@ -204,31 +204,6 @@ a:hover{
 
 .white-transparent-hover:hover, .white-transparent-hover-sel{
   color:rgba(255,255,255,1);
-}
-
-/*
---------------------------------------------------------------------------------
-Menu
-*/
-
-.menu{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  height:50px;
-}
-
-.menu .options{
-  position:absolute;
-  right:0;
-  top:50%;
-  margin-top:-12px; /*TODO: fix this*/
-}
-
-.menu .options ul li{
-  display:inline-block;
-  padding:2px 4px;
 }
 
 /*
@@ -289,6 +264,59 @@ Logo
 
 /*
 --------------------------------------------------------------------------------
+Menu
+*/
+
+.menu{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  z-index:9;
+}
+
+.menu .container{
+  margin:0 auto;
+  height:100%;
+  padding:0;
+}
+
+.menu .logo-container{
+  top:10px;
+}
+
+.menu .options{
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+}
+
+.menu .options ul{
+}
+
+.menu .options ul li{
+  float:left;
+  margin-top:15px;
+}
+
+.menu .options ul li a{
+  height:100%;
+  color:inherit;
+  line-height:40px;
+  height:40px;
+  display:block;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.menu .options ul li a:hover{
+  text-decoration:none;
+}
+
+/*
+--------------------------------------------------------------------------------
 Hero
 */
 
@@ -298,6 +326,8 @@ Hero
   height:600px;
   left:0;
   right:0;
+  background-image:url(../images/vla.jpg);
+  background-size:100% 100%;
 }
 
 #hero .logo-container{

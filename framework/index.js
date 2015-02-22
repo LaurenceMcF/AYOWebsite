@@ -1,5 +1,20 @@
 $(function(){
 
+  //Top menu
+  var height = 600;
+  var adjMenuOpacity = function(){
+    if ($(window).scrollTop() > height) {
+      $('.menu').css("background-color", 'rgba(161, 20, 20, 0.8)');
+    } else {
+      $('.menu').css("background-color", 'rgba(161, 20, 20, 0)');
+      var opacity = $(window).scrollTop() / height * 0.8;
+      console.log(opacity);
+      $('.menu').css("background-color", 'rgba(161, 20, 20, '+opacity+')');
+    }
+  }
+  $(window).scroll(adjMenuOpacity);
+  adjMenuOpacity();
+
   //Gallery Creation
   $(".gallery").each(function(index, el){
     var $el = $(el);
