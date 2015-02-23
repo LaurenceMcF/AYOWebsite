@@ -1,16 +1,22 @@
 $(function(){
 
   //Top menu
-  var height = 600;
+  var height = 600 - $('.menu').height();
   var adjMenuOpacity = function(){
     if ($(window).scrollTop() > height) {
       $('.menu').css("background-color", 'rgba(161, 20, 20, 0.8)');
       //$('.menu .logo-container').css("width", 150);
+      $('.menu').addClass("c-main-dark-bg-transparent-shadow");
+      $('.menu .logo-container').css("opacity", 0.75);
     } else {
       $('.menu').css("background-color", 'rgba(161, 20, 20, 0)');
       var opacity = $(window).scrollTop() / height * 0.8;
+      var opacitylogo = 1  - $(window).scrollTop() / height * 0.25;
       var logosize = 250 - $(window).scrollTop() / height * 100;
       $('.menu').css("background-color", 'rgba(161, 20, 20, '+opacity+')');
+      $('.menu').addClass("c-main-dark-bg-transparent-shadow");
+      $('.menu').removeClass("c-main-dark-bg-transparent-shadow");
+      $('.menu .logo-container').css("opacity", opacitylogo);
       //$('.menu .logo-container').css("width", logosize);
     }
   }
