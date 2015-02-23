@@ -566,7 +566,7 @@ a:hover{
   float:left;
 }
 
-.columnthree.center{
+.center{
   text-align:center;
 }
 
@@ -628,23 +628,11 @@ a:hover{
 }
 
 .footer{
-  min-height:100px;
 }
 
 .footer ul{
   list-style-type:none;
   padding:0;
-}
-
-.footer ul li{
-  float:left;
-  width:14.2%;
-  text-align:center;
-}
-
-.footer ul li.copy{
-  text-align:left;
-  width:28.4%;
 }
 
 @media all and (max-width: 700px) {
