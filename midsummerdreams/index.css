@@ -619,6 +619,7 @@ a:hover{
 .supporters .majorsupporters li{
   float:left;
   margin:auto;
+  width:14.28%;
 }
 
 .supporters .majorsupporters li img{
