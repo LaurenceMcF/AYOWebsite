@@ -1,0 +1,642 @@
+/*
+--------------------------------------------------------------------------------
+Colours and basic look
+*/
+
+body{
+  font-family:"Helvetica Neue","Helvetica","Roboto","Verdana","Arial","sans-serif";
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+  font-style: normal;
+  margin:0;
+}
+
+a{
+  color:#08C;
+  text-decoration:none;
+  transition:color 0.1s;
+}
+
+.orchestra .hasdetails:hover{
+  transition:color 0.1s;
+}
+
+a:hover, .orchestra .hasdetails:hover{
+  color:#3BF;
+}
+
+.main-color, h1, h2, h3, h4, h5, h6{
+  color:#A11415;
+}
+
+.main-color-bg, #hero, .footer, .floating-menu{
+  background-color:#A11415;
+  color:#fff;
+}
+
+h2, .vbig{
+  font-weight:normal;
+  font-size:2.5em;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+h3, .big{
+  font-weight:normal;
+  font-size:1.5em;
+}
+
+.bg-alt:nth-child(even){
+  background:#f9f2f3;
+}
+
+.dark-bg a, a.dark-bg{
+  color:rgba(255,255,255,0.5);
+  transition:color 0.1s;
+  text-decoration:none;
+}
+
+.dark-bg a:hover, a.dark-bg:hover{
+  color:rgba(255,255,255,1);
+  text-decoration:none;
+}
+
+.button{
+  background-color:#A11415;
+  color:#fff;
+}
+
+.button:hover{
+  background-color:#e53031;
+  color:#fff;
+}
+
+.dark-bg .button{
+  background-color:#ccc;
+  background-color:rgba(255,255,255,0.5);
+  color:#fff;
+  opacity:0.5;
+}
+
+.dark-bg .button:hover{
+  opacity:1;
+}
+
+
+
+
+/*
+--------------------------------------------------------------------------------
+UI Components
+*/
+
+.button{
+  margin:0;
+  padding:10px;
+  border:none;
+  border-radius:2px;
+  font-size:1em;
+  cursor:pointer;
+  display:inline-block;
+  -webkit-appearance: none;
+}
+
+a.button{
+  padding-bottom:8px;
+}
+
+.button:hover{
+  text-decoration:none;
+}
+
+.button:active{
+  margin:0;
+}
+
+/*
+--------------------------------------------------------------------------------
+Structural elements
+*/
+
+.clear:after{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.no-list{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+.no-top{
+  margin-top:0;
+}
+
+.margin-top-med{
+  margin-top:25px;
+}
+
+.margin-top-large{
+  margin-top:50px;
+}
+
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:40px 0px;
+}
+
+.container-no-pad{
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 0px;
+}
+
+@media all and (min-width: 650px){
+  .g-full{
+    width:98%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .g-third{
+    float: left;
+    width: 31.33%;
+    padding:0.3% 1%;
+  }
+
+  .g-twothird{
+    float: left;
+    width: 64.66%;
+    padding:0.3% 1%;
+  }
+
+  .g-quarter{
+    float: left;
+    width: 23%;
+    padding:0.3% 1%;
+  }
+
+  .g-half{
+    float: left;
+    width: 48%;
+    padding:0.3% 1%;
+  }
+
+  .g-threequarter{
+    float: left;
+    width: 73%;
+    padding:0.3% 1%;
+  }
+
+  .wide{
+    display:block;
+  }
+
+  .narrow{
+    display:none;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width:650px){
+  .g-full{
+    width:98%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .g-third{
+    float: left;
+    width: 98%;
+    padding:0.3% 1%;
+  }
+
+  .g-third.g-allow-small{
+    width:31.33%;
+  }
+
+  .g-twothird{
+    float: left;
+    width: 98%;
+    padding:0.3% 1%;
+  }
+
+  .g-quarter{
+    float: left;
+    width: 98%;
+    padding:0.3% 1%;
+  }
+
+  .g-quarter.g-allow-small{
+    width:23%;
+  }
+
+  .g-half{
+    float: left;
+    width: 98%;
+    padding:0.3% 1%;
+  }
+
+  .g-threequarter{
+    float: left;
+    width: 98%;
+    padding:0.3% 1%;
+  }
+
+  .wide{
+    display:none;
+  }
+
+  .narrow{
+    display:block;
+  }
+
+}
+
+.g-right{
+  float:right;
+}
+
+.center-el{
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+
+.center{
+  text-align:center;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+Popup
+*/
+
+.popupBacking{
+  background-color:#000;
+  opacity:0.7;
+  z-index:9;
+  display:none;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.popup{
+  background:#fff;
+  border-radius:2px;
+  z-index:10;
+  display:none;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  width:800px;
+  height:500px;
+  max-width:100%;
+  max-height:100%;
+}
+
+.popuppadded{
+  padding:1.5%;
+  max-width:97%;
+  max-height:97%;
+  overflow:auto;
+}
+
+.whiteclosepopup, .blackclosepopup{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:15px;
+  height:15px;
+  background: url(arrows.png);
+  z-index:3;
+  cursor:pointer;
+}
+
+.whiteclosepopup{
+  background-position: -70px 0;
+}
+
+.blackclosepopup{
+  background-position: -70px -45px;
+}
+
+/*
+--------------------------------------------------------------------------------
+Menus and Logos
+*/
+
+.hero-menu{
+  left:0;
+  right:0;
+  top:0;
+  z-index:8;
+  position:absolute;
+}
+
+.hero-menu .options{
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+}
+
+.hero-menu .options ul li{
+  float:left;
+  margin-top:30px;
+}
+
+.hero-menu .options ul li a{
+  display:block;
+  padding:5px 10px;
+}
+
+.hero-menu .menu-button{
+  position:absolute;
+  top:20px;
+  left:20px;
+  cursor:pointer;
+  color:#fff;
+}
+
+.floating-menu{
+  position:fixed;
+  z-index:8;
+  top:0;
+  left:0;
+  right:0;
+  transition:opacity 0.3s;
+  visibility:hidden;
+}
+
+.floating-menu ul li{
+  float:right;
+  margin-left:20px;
+  cursor:pointer;
+}
+
+.floating-menu ul li.left{
+  float:left;
+  margin:0 20px 0 0;
+}
+
+.side-menu{
+  top:0;
+  bottom:0;
+  left:-75%;
+  width:75%;
+  overflow:auto;
+  position:fixed;
+  z-index:10;
+  background-color:#fff;
+  transition:left 0.1s;
+  max-width:300px;
+}
+
+.side-menu ul li{
+  border-bottom:1px solid #333;
+}
+
+.side-menu ul li a{
+  color:#000;
+  padding:20px 8px;
+  display:block;
+}
+
+@media all and (min-width: 850px) {
+  .logo-container{
+    position:absolute;
+    left:0;
+    top:20px;
+  }
+}
+
+@media all and (min-width: 700px) and (max-width:850px){
+  .hero-menu .options{
+    position:relative;
+    text-align:center;
+  }
+
+  .hero-menu .options ul li{
+    width:14.28%;
+    margin-top:0;
+  }
+
+  .logo-container{
+    position:relative;
+    left:0;
+    right:0;
+    margin:0 auto;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width:700px){
+  .hero-menu .options{
+    position:relative;
+    text-align:center;
+  }
+
+  .hero-menu .options ul li{
+    width:25%;
+    margin-top:0;
+  }
+
+  .logo-container{
+    position:relative;
+    left:0;
+    right:0;
+    margin:0 auto;
+  }
+}
+
+
+.logo-container{
+  width:235px;
+  height:50px;
+}
+
+.logo-ayo{
+  display:inline-block;
+  position:relative;
+  width:138px;
+  height:50px;
+  animation: logoleft 1s;
+  background: url(ayologopath.png) 0 0;
+}
+
+.logo-container .logo-text{
+  display:inline-block;
+  position:relative;
+  width:92px;
+  height:50px;
+  background: url(ayologopath.png) -138px 0;
+}
+
+.logo-container.animate .logo-text {
+  -webkit-animation: logoright 1s;
+  animation: logoright 1s;
+}
+
+@-webkit-keyframes logoright {
+  from { -webkit-transform: translate(-69px); opacity:0; }
+  to { -webkit-transform: translate(0px); opacity:1; }
+}
+@keyframes logoright {
+  from { transform: translate(-69px); opacity:0; }
+  to { transform: translate(0px); opacity:1; }
+}
+
+/*
+--------------------------------------------------------------------------------
+Icons
+*/
+
+.next, .prev{
+  width: 30px;
+  height: 60px;
+  background: url(arrows.svg);
+  cursor:pointer;
+}
+
+.three-line-menu{
+  width: 24px;
+  height: 20px;
+  display:inline-block;
+  background: url(arrows.svg);
+  background-position: -90px 0;
+}
+
+.prev{
+  background-position: 0 0;
+}
+
+.next{
+  background-position: -35px 0;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+Hero
+*/
+
+#hero{
+  background:#000;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+/*
+--------------------------------------------------------------------------------
+Orchestra
+*/
+
+.orchestra ul li{
+  margin-bottom:5px;
+}
+
+.orchestra ul li.hasdetails:hover{
+  cursor:pointer;
+}
+
+.orchestra ul li.instrument{
+  font-weight:bold;
+  margin:20px 0 10px 0;
+  color:#000;
+}
+
+.orchestra ul li.instrument:first-child{
+  margin-top:0;
+}
+
+.orchestra .orchpopup .orchpopupname{
+  margin:10px 0 20px 0;
+}
+
+.orchestra .orchpopup .orchpopupimg{
+  float:left;
+  margin:0 10px 10px 0;
+  max-width:350px;
+  max-height:350px;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------
+Support
+*/
+
+.majorsupporters li{
+  float:left;
+  min-width:104px;
+  width:14.28%
+}
+
+/*
+--------------------------------------------------------------------------------
+Gallery
+*/
+
+.gallery{
+  max-width:100%;
+  position:relative;
+  height:400px;
+  transition:height 0.1s;
+}
+
+.gallery .gallery-img-container{
+  position:relative;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+
+.gallery .gallery-img-container img{
+  max-width:100%;
+  position:absolute;
+  display:block;
+  margin:0 auto;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.gallery.gallery-full-width .gallery-img-container img{
+  width:100%;
+}
+
+.gallery .gallery-img-container > img:first-child{
+  opacity:1;
+}
+
+.gallery .next, .gallery .prev{
+  display:block;
+  position:absolute;
+  top:50%;
+  margin-top:-30px;
+  z-index:2;
+}
+
+.gallery .prev{
+  left:10px;
+}
+
+.gallery .next{
+  right:10px;
+}
