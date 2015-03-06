@@ -52,10 +52,15 @@ h3, .big{
   background:#f9f2f3;
 }
 
-.dark-bg a, a.dark-bg{
+.dark-bg a, a.dark-bg, .footer.dark-bg{
   color:rgba(255,255,255,0.5);
   transition:color 0.1s;
   text-decoration:none;
+}
+
+.footer em{
+  color:#fff;
+  font-style: normal;
 }
 
 .dark-bg a:hover, a.dark-bg:hover{
@@ -245,6 +250,16 @@ Structural elements
     float: left;
     width: 98%;
     padding:0.3% 1%;
+  }
+
+  .center-el-narrow{
+    left:0;
+    right:0;
+    margin:0 auto;
+  }
+
+  .center-narrow{
+    text-align:center;
   }
 
   .wide{
