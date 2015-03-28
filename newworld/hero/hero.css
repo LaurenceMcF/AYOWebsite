@@ -17,6 +17,9 @@
   animation: main-text 2s;
   bottom:50%;
   z-index:2;
+  line-height:75%;
+  font-weight:bold;
+  color:#A8D6FF;
 }
 
 @media all and (min-width: 650px){
@@ -127,7 +130,7 @@
 
 #hero .earth{
   position:absolute;
-  bottom:0;
+  bottom:-50px;
   width:900px;
   margin-left:-450px;
   left:50%;

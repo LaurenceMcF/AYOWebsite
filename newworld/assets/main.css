@@ -4,7 +4,7 @@ Colours and basic look
 */
 
 body{
-  font-family:"Helvetica Neue","Helvetica","Roboto","Verdana","Arial","sans-serif";
+  font-family:"Candara","Helvetica Neue","Helvetica","Roboto","Verdana","Arial","sans-serif";
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   line-height: 1.45;
@@ -56,6 +56,10 @@ h3, .big{
   color:rgba(255,255,255,0.5);
   transition:color 0.1s;
   text-decoration:none;
+}
+
+.dark-bg.lighter-a a{
+  color:rgba(255,255,255,0.7);
 }
 
 .footer em{
