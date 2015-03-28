@@ -145,7 +145,7 @@ var people = {
   },
   "Charlotte Naden":{
     "image":"peoplephotos/charlottenaden.JPG",
-    "text":"<pCharlotte has been playing the bassoon for 5 years and has just finished her first year of bassoon performance in her BSc (Ecology)/BMus (performance) conjoint, with a University of Auckland Jubilee Award Scholarship. She has been learning from Ben Hoadley for two years, has played with several orchestras and concert bands, including the New Zealand Youth Symphonic Winds, and was in the winning 2013 NZCBA Mladi Sextet. Charlotte is also a keen Scottish Fiddler, recently received Gold in the fiddle competition at the 2015 Waipu Scottish Highland Games and attended SHISSF (Southern Hemisphere International School of Scottish Fiddle) in Wellington in 2012 with a full scholarship. To put herself through Uni, Charlotte milks cows and coaches at Kaukapakapa Pony Club.</p>"
+    "text":"<p>Charlotte has been playing the bassoon for 5 years and has just finished her first year of bassoon performance in her BSc (Ecology)/BMus (performance) conjoint, with a University of Auckland Jubilee Award Scholarship. She has been learning from Ben Hoadley for two years, has played with several orchestras and concert bands, including the New Zealand Youth Symphonic Winds, and was in the winning 2013 NZCBA Mladi Sextet. Charlotte is also a keen Scottish Fiddler, recently received Gold in the fiddle competition at the 2015 Waipu Scottish Highland Games and attended SHISSF (Southern Hemisphere International School of Scottish Fiddle) in Wellington in 2012 with a full scholarship. To put herself through Uni, Charlotte milks cows and coaches at Kaukapakapa Pony Club.</p>"
   },
   "Anita Austin":{
     "image":"peoplephotos/anitaaustin.JPG",
