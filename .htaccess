@@ -14,7 +14,7 @@ AddType image/svg+xml .svg .svgz
 AddEncoding x-gzip .svgz
 
 RewriteEngine On
-RewriteRule ^$ /midsummerdreams/ [L]
+RewriteRule ^$ /newworld/ [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /midsummerdreams/$1 [L]
+RewriteRule ^(.*)$ /newworld/$1 [L]
