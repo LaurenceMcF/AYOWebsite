@@ -53,6 +53,13 @@
   position:absolute;
   -webkit-animation: concertsFadeIn 3s;
   z-index:2;
+}
+
+#hero .container-no-pad{
+ position:relative;
+}
+
+#hero .concerts .concertsbg{
   background:rgba(0,0,0,0.5);
   border-radius:4px;
 }

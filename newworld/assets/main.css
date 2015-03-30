@@ -290,6 +290,14 @@ Structural elements
   text-align:center;
 }
 
+.image-width-100-container{
+  width:100%;
+}
+
+.image-width-100{
+  width:100%;
+}
+
 
 /*
 --------------------------------------------------------------------------------
@@ -362,6 +370,10 @@ Menus and Logos
   top:0;
   z-index:8;
   position:absolute;
+}
+
+.hero-menu .container-no-pad{
+  position:relative;
 }
 
 .hero-menu .options{
