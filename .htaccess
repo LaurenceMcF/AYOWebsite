@@ -1,14 +1,14 @@
-Redirect /concerts/ http://ayo.org.nz/
-Redirect /aboutus/ http://ayo.org.nz/
-Redirect /players/ http://ayo.org.nz/
-Redirect /history/ http://ayo.org.nz/
-Redirect /alumni/ http://ayo.org.nz/
-Redirect /gallery/ http://ayo.org.nz/
-Redirect /sponsors/ http://ayo.org.nz/
-Redirect /donate/ http://ayo.org.nz/
-Redirect /joinus/ http://ayo.org.nz/
-Redirect /contact/ http://ayo.org.nz/
-Redirect /scholarships/ http://ayo.org.nz/
+Redirect /concerts/ http://ayo.org.nz/#2015series
+Redirect /aboutus/ http://ayo.org.nz/#about
+Redirect /players/ http://ayo.org.nz/#players
+Redirect /history/ http://ayo.org.nz/#join
+Redirect /alumni/ http://ayo.org.nz/#about
+Redirect /gallery/ http://ayo.org.nz/#about
+Redirect /sponsors/ http://ayo.org.nz/#support
+Redirect /donate/ http://ayo.org.nz/#support
+Redirect /joinus/ http://ayo.org.nz/#join
+Redirect /contact/ http://ayo.org.nz/#contact
+Redirect /scholarships/ http://ayo.org.nz/#about
 
 AddType image/svg+xml .svg .svgz
 AddEncoding x-gzip .svgz
